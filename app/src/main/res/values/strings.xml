@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">History Puzzle</string>
+    <string name="tells_you_the_current_event">Tells you the current event</string>
+</resources>
