@@ -54,7 +54,7 @@ public class Timeline extends AppCompatActivity  {
         }//end of else
 
         if(correct){
-            topTextBarTV.setText("");
+            topTextBarTV.setText("Please Take a Screenshot of Result,\n Press Home Button to continue");
             topImageView.setImageResource(R.drawable.correct);
 
         }
@@ -114,7 +114,7 @@ public class Timeline extends AppCompatActivity  {
     public void homeButtonOnClick (View view){
         openMainActivity();
         mainActivity.setElementCounter(0);
-        mainActivity.clearArrayList(mainActivity.getSelectedEventsGame1());
+        mainActivity.clearArrayList(mainActivity.getSelectedEvents());
         mainActivity.setGameOver(false);
         mainActivity.setMinute(0);
         mainActivity.setSecond(0);
@@ -142,7 +142,7 @@ public class Timeline extends AppCompatActivity  {
         * then make a switch statement and set "userSelection" to its correlating game number.
         * ex. if tag # = 1, then userSelection = mainActivity.getSelectedEventsGame1();
         */
-        userSelection = mainActivity.getSelectedEventsGame1();
+        userSelection = mainActivity.getSelectedEvents();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, userSelection );
         timelineListView.setAdapter(adapter);
 

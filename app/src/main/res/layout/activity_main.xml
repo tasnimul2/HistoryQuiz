@@ -124,6 +124,7 @@
         android:layout_height="52dp"
         android:alpha="1"
         android:background="@drawable/gametwocenter"
+        android:onClick="gameTwoOnClick"
         android:textColor="#FAFAFA"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -229,10 +230,13 @@
         android:id="@+id/timeTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04000002" />
+        app:layout_constraintVertical_bias="0.24000001" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity  {
 
     private ArrayList<String> allOptionsGame1 = new ArrayList<>();
-    private static ArrayList<String> selectedEventsGame1 = new ArrayList<>();
+    private static ArrayList<String> selectedEvents = new ArrayList<>();
     private Game1 game1Options = new Game1();
     private TextView topTextBarTV, eventShowerTV , timeTV;
     private Button  game1SelectionBTN, game2SelectionBTN, addToTimelineBTN, skipToNextBTN, submitBTN,showTimelineBTN;
@@ -36,21 +36,12 @@ public class MainActivity extends AppCompatActivity  {
     //                                           GETTERS / SETTERS                                          //
     //******************************************************************************************************//
 
-    public ArrayList getSelectedEventsGame1(){
-        return selectedEventsGame1;
+    public ArrayList getSelectedEvents(){
+        return selectedEvents;
     }
 
     public int getButtonYear(){
         return buttonYear;
-    }
-
-    public void setElementCounter(int newValue){
-        elementCounter = newValue;
-    }
-
-
-    public void setGameOver(boolean isGameOver){
-        gameOver = isGameOver;
     }
 
 
@@ -62,12 +53,31 @@ public class MainActivity extends AppCompatActivity  {
         return  second;
     }
 
+
+
     public void setMinute(int min){
         minute = min;
     }
 
     public void setSecond(int sec){
         second = sec;
+    }
+
+    public void setButtonYear(int year){
+        buttonYear = year;
+    }
+
+    public void setElementCounter(int newValue){
+        elementCounter = newValue;
+    }
+
+
+    public void setGameOver(boolean isGameOver){
+        gameOver = isGameOver;
+    }
+
+    public void setSelectedEvents(String insert){
+        selectedEvents.add(insert);
     }
 
 
@@ -161,12 +171,12 @@ public class MainActivity extends AppCompatActivity  {
     * then the game is over.
     *
     * */
-    public void loadNextEvent(int elementCounter){
-        if (elementCounter == allOptionsGame1.size()) {
+    public void loadNextEvent(int elementCounter, ArrayList eventsArray){
+        if (elementCounter == eventsArray.size()) {
             eventShowerTV.setText("All Events Shown");
             gameOver = true;
         } else {
-            eventShowerTV.setText(allOptionsGame1.get(elementCounter));
+            eventShowerTV.setText(""+eventsArray.get(elementCounter));
         }
     }
 
@@ -325,16 +335,16 @@ public class MainActivity extends AppCompatActivity  {
 
     public void addToTimeLineOnClick(View view){
         if(!gameOver) {
-            selectedEventsGame1.add(allOptionsGame1.get(elementCounter));
+            selectedEvents.add(allOptionsGame1.get(elementCounter));
             ++elementCounter;
-            loadNextEvent(elementCounter);
+            loadNextEvent(elementCounter,allOptionsGame1);
         }
     }
 
     public void skipToNextOnClick(View view){
         if(!gameOver) {
             ++elementCounter;
-            loadNextEvent(elementCounter);
+            loadNextEvent(elementCounter,allOptionsGame1);
         }
     }
 
@@ -348,18 +358,18 @@ public class MainActivity extends AppCompatActivity  {
 
         switch(buttonYear){
             case 1928:
-                checkSolution(selectedEventsGame1,answerKeyGame1(1928));
+                checkSolution(selectedEvents,answerKeyGame1(1928));
                 break;
             case 1930:
-                checkSolution(selectedEventsGame1,answerKeyGame1(1930));
+                checkSolution(selectedEvents,answerKeyGame1(1930));
                 break;
 
             case 1929:
-                checkSolution(selectedEventsGame1,answerKeyGame1(1929));
+                checkSolution(selectedEvents,answerKeyGame1(1929));
                 break;
 
             case 1920:
-                checkSolution(selectedEventsGame1,answerKeyGame1(1920));
+                checkSolution(selectedEvents,answerKeyGame1(1920));
                 break;
 
             default:
@@ -380,13 +390,15 @@ public class MainActivity extends AppCompatActivity  {
 
     }
 
-    /*
-    * TODO:
-    *  1) make a view timeline button that will show the user the timeline before submitting ✓
-    *  2) the user can make a change on the timeline if they choose
-    *  3) add sound
-    *  4) add cooler graphics.
-    *  5) make the events appear in random order (currently the events are shown in the same order every time) */
+
+    /*once game two is selected, a separate game two page is opened*/
+    public void gameTwoOnClick(View view){
+        Intent intent = new Intent(this,Game2Page2.class);
+        startActivity(intent);
+    }
+
+
+
 
 
     @Override
