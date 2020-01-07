@@ -2,12 +2,15 @@ package com.example.historyquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -15,12 +18,15 @@ import java.util.ArrayList;
 public class Game2Page2 extends AppCompatActivity {
 
     MainActivity mainActivity = new MainActivity();
-    private Button sixHundredBTN,fiveFiftyBTN,fiveThrityBTN,fiveNintynineBTN,addToTimelineBTN,skipToNextBTN;
+    private Button sixHundredBTN,fiveFiftyBTN,fiveThrityBTN,fiveNintynineBTN,addToTimelineBTN,skipToNextBTN,submitBTN;
     private ImageView topImageView;
     private static ArrayList<String> game2Events = new ArrayList<>();
     private static int elementCounter = 0;
-    private TextView eventShowerTV;
+    private TextView eventShowerTV, timeTV;
     private boolean gameOver = false;
+    private static int minute = 0, second = 0;
+    private Handler handler = new Handler();
+    private Runnable run;
 
 
     //******************************************************************************************************//
@@ -53,6 +59,73 @@ public class Game2Page2 extends AppCompatActivity {
         } else {
             eventShowerTV.setText(""+eventsArray.get(elementCounter));
         }
+    }
+
+    /* the answerKeyGame2 function creates an arrayList that holds the answer key for
+     *  the specific time period selected*/
+    protected ArrayList answerKeyGame2(int year) {
+        ArrayList<String> tempList = new ArrayList<>();
+        Game2 game2 = new Game2();
+
+        switch (year) {
+            case 600:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game2.date1(i));
+                }
+                break;
+            case 550:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game2.date2(i));
+                }
+                break;
+
+            case 530:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game2.date3(i));
+                }
+                break;
+
+            case 599:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game2.date4(i));
+                }
+                break;
+
+            default:
+                Toast.makeText(this, "Error has Occurred", Toast.LENGTH_SHORT).show();
+
+        }
+        return tempList;
+    }
+
+    /* the start clock method uses the handler to run the runnable.*/
+    public void startClock(){
+        handler.post(run);
+    }
+
+    public void runRunnable(){
+        run = new Runnable() {
+            @Override
+            public void run() {
+                ++second;
+                if(second == 60){
+                    second = 0;
+                    ++minute;
+                }
+                if(second < 10 && minute < 10){
+                    timeTV.setText("0"+ minute + " : 0"+ second);
+                }else if(second < 10 && minute >= 10){
+                    timeTV.setText(""+ minute + " : 0"+ second);
+                }else if(second > 10 && minute < 10){
+                    timeTV.setText("0"+ minute + " : "+ second);
+                }else{
+                    timeTV.setText(""+ minute + " : "+ second);
+                }
+
+
+                handler.postDelayed(this,1000);
+            }
+        };
     }
 
 
@@ -98,13 +171,17 @@ public class Game2Page2 extends AppCompatActivity {
             topImageView.setImageResource(R.drawable.doesthisbelonginthetimeline);
             addToTimelineBTN.setAlpha(1);
             skipToNextBTN.setAlpha(1);
+            submitBTN.setAlpha(1);
             addToTimelineBTN.setVisibility(View.VISIBLE);
             skipToNextBTN.setVisibility(View.VISIBLE);
+            submitBTN.setVisibility(View.VISIBLE);
+            startClock();
         }
 
         if(!visible){
             addToTimelineBTN.setVisibility(View.INVISIBLE);
             skipToNextBTN.setVisibility(View.INVISIBLE);
+            submitBTN.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -117,6 +194,14 @@ public class Game2Page2 extends AppCompatActivity {
     //         The Methods written above are used to add functionality to the methods listed below          //
     //******************************************************************************************************//
 
+
+    /*
+    * Tag #s to Notes:
+    * Tag # 600 = 600 BCE - 321BCE
+    * Tag # 550 = 550 BCE - 321 BCE
+    * Tag # 530 = c.530 BCE - c.327 BCE
+    * Tag # 599 = c.599 BCE - c.483 BCE
+    * */
     public void yearOnClick(View view){
         //sets the button that is currently being pressed into the variable "buttonPressed"
         Button buttonPressed = (Button) view;
@@ -147,6 +232,16 @@ public class Game2Page2 extends AppCompatActivity {
     *  2) add tags for game twos events on the "checkSolution" method for timeline Activity
     * */
 
+    public void submitOnClick(View view){
+        Intent intent = new Intent(this,Timeline.class);
+        startActivity(intent);
+        handler.removeCallbacks(run); //uses the handler to tell runnable called "run" to stop running.
+        mainActivity.setSecond(second);
+        mainActivity.setMinute(minute);
+        second = 0;
+        minute = 0;
+    }
+
 
 
 
@@ -166,12 +261,14 @@ public class Game2Page2 extends AppCompatActivity {
         fiveNintynineBTN = findViewById(R.id.fiveNintynineBTN);
         skipToNextBTN = findViewById(R.id.skipToNextBTN);
         addToTimelineBTN = findViewById(R.id.addToTimelineBTN);
+        submitBTN = findViewById(R.id.submitBTN);
 
         //ImageView initialization
         topImageView = findViewById(R.id.topImageView);
 
         //TextView initialization
         eventShowerTV = findViewById(R.id.eventShowerTV);
+        timeTV = findViewById(R.id.timeTV);
 
         //set alpha
         sixHundredBTN.setAlpha(1);
@@ -179,6 +276,10 @@ public class Game2Page2 extends AppCompatActivity {
         fiveThrityBTN.setAlpha(1);
         fiveNintynineBTN.setAlpha(1);
         page1visibility(true);
+
+
+        runRunnable();
+
 
 
 

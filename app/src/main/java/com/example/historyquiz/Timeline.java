@@ -23,6 +23,7 @@ public class Timeline extends AppCompatActivity  {
     private MainActivity mainActivity = new MainActivity();
     private TextView topTextBarTV,timeTV;
     private ImageView topImageView;
+    private Game2Page2 game2Page2 = new Game2Page2();
 
 
 
@@ -94,15 +95,24 @@ public class Timeline extends AppCompatActivity  {
             case 1930:
                checkSolution(userSelection,mainActivity.answerKeyGame1(1930));
                 break;
-
             case 1929:
                 checkSolution(userSelection,mainActivity.answerKeyGame1(1929));
                 break;
-
             case 1920:
                 checkSolution(userSelection,mainActivity.answerKeyGame1(1920));
                 break;
-
+            case 600:
+                checkSolution(userSelection,game2Page2.answerKeyGame2(600));
+                break;
+            case 550:
+                checkSolution(userSelection,game2Page2.answerKeyGame2(550));
+                break;
+            case 530:
+                checkSolution(userSelection,game2Page2.answerKeyGame2(530));
+                break;
+            case 599:
+                checkSolution(userSelection,game2Page2.answerKeyGame2(599));
+                break;
             default:
                 Toast.makeText(this,"Error has Occurred",Toast.LENGTH_SHORT).show();
 

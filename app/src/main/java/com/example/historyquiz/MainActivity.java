@@ -138,35 +138,6 @@ public class MainActivity extends AppCompatActivity  {
 
 
     /*
-    * the checkSolution function checks if the events selected by the user is correct by
-    * comparing if the events selected by the user is in the answer key
-    */
-    public void checkSolution(ArrayList userSelection, ArrayList answerKey){
-
-        boolean correct = true;
-        if(userSelection.size() != 4 ){
-            correct = false;
-            topTextBarTV.setText("Please Go back to the reading,\n Press review button to continue");
-            topImageView.setImageResource(R.drawable.incorrect);
-        }else {
-            for(int i = 0; i < answerKey.size(); i ++){
-                if( !(userSelection.contains(answerKey.get(i))) ) {
-                    topTextBarTV.setText("Please Go back to the reading,\n Press review button to continue");
-                    topImageView.setImageResource(R.drawable.incorrect);
-                    correct = false;
-                    break;
-                }//end of if
-            }//end of for loop
-        }//end of else
-
-        if(correct){
-            topTextBarTV.setText("");
-            topImageView.setImageResource(R.drawable.correct);
-
-        }
-    }
-
-    /*
     * the loadNextEvent method loads the next event on the timeline. If all events are used up (ie. all events were shown to the user)
     * then the game is over.
     *
@@ -198,6 +169,32 @@ public class MainActivity extends AppCompatActivity  {
     process it by calling its run method and passing the message to it*/
     public void clock(){
         handler.post(run);
+    }
+
+
+    public void runRunnable(){
+        run = new Runnable() {
+            @Override
+            public void run() {
+                ++second;
+                if(second == 60){
+                    second = 0;
+                    ++minute;
+                }
+                if(second < 10 && minute < 10){
+                    timeTV.setText("0"+ minute + " : 0"+ second);
+                }else if(second < 10 && minute >= 10){
+                    timeTV.setText(""+ minute + " : 0"+ second);
+                }else if(second > 10 && minute < 10){
+                    timeTV.setText("0"+ minute + " : "+ second);
+                }else{
+                    timeTV.setText(""+ minute + " : "+ second);
+                }
+
+
+                handler.postDelayed(this,1000);
+            }
+        };
     }
 
 
@@ -348,36 +345,6 @@ public class MainActivity extends AppCompatActivity  {
         }
     }
 
-    /*
-    * 1) make the submit button visible once the user selects a year ✓
-    * 2) when the user presses submit , check if the answer is correct by checking if
-    *    selectedEventsGame1 ArrayList contain an elements from  the "answers" array in the Game1 Class
-    * 3) make a play again option so the user does not have to select
-     */
-    public void submitOnClick(View view){
-
-        switch(buttonYear){
-            case 1928:
-                checkSolution(selectedEvents,answerKeyGame1(1928));
-                break;
-            case 1930:
-                checkSolution(selectedEvents,answerKeyGame1(1930));
-                break;
-
-            case 1929:
-                checkSolution(selectedEvents,answerKeyGame1(1929));
-                break;
-
-            case 1920:
-                checkSolution(selectedEvents,answerKeyGame1(1920));
-                break;
-
-            default:
-                Toast.makeText(this,"Error has Occurred",Toast.LENGTH_SHORT).show();
-
-        }
-
-    }
 
     /*
     * the showTimelineOnClick method for the show timeline button. When pressed, it will open a new page that will display the timeline
@@ -441,29 +408,7 @@ public class MainActivity extends AppCompatActivity  {
 
         //runnable used to run the timer
 
-         run = new Runnable() {
-            @Override
-            public void run() {
-                ++second;
-                if(second == 60){
-                    second = 0;
-                    ++minute;
-                }
-                if(second < 10 && minute < 10){
-                    timeTV.setText("0"+ minute + " : 0"+ second);
-                }else if(second < 10 && minute >= 10){
-                    timeTV.setText(""+ minute + " : 0"+ second);
-                }else if(second > 10 && minute < 10){
-                    timeTV.setText("0"+ minute + " : "+ second);
-                }else{
-                    timeTV.setText(""+ minute + " : "+ second);
-                }
-
-
-                handler.postDelayed(this,1000);
-            }
-        };
-
+       runRunnable();
 
     }
 }
