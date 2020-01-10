@@ -162,6 +162,9 @@ public class Game2Page2 extends AppCompatActivity {
             fiveFiftyBTN.setEnabled(true);
             fiveThrityBTN.setEnabled(true);
             fiveNintynineBTN.setEnabled(true);
+            addToTimelineBTN.setEnabled(false);
+            skipToNextBTN.setEnabled(false);
+            submitBTN.setEnabled(false);
 
         }
 
@@ -188,7 +191,11 @@ public class Game2Page2 extends AppCompatActivity {
             addToTimelineBTN.setVisibility(View.VISIBLE);
             skipToNextBTN.setVisibility(View.VISIBLE);
             submitBTN.setVisibility(View.VISIBLE);
+            addToTimelineBTN.setEnabled(true);
+            skipToNextBTN.setEnabled(true);
+            submitBTN.setEnabled(true);
             startClock();
+
         }
 
         if(!visible){
