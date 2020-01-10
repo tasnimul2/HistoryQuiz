@@ -3,6 +3,7 @@ package com.example.historyquiz;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -27,6 +28,7 @@ public class Game2Page2 extends AppCompatActivity {
     private static int minute = 0, second = 0;
     private Handler handler = new Handler();
     private Runnable run;
+    private MediaPlayer music;
 
 
     //******************************************************************************************************//
@@ -42,6 +44,9 @@ public class Game2Page2 extends AppCompatActivity {
     //                        METHODS FOR COMPUTATIONS/ OTHER TASKS (Helper Methods )                       //
     //******************************************************************************************************//
 
+    /*
+    * the addAllEvents method loads up all the possible events for game 2 in to the arrayList game2Events
+    */
     public void addAllEvents(){
         Game2 game2 = new Game2();
         for(int i = 0; i< 4; i++){
@@ -52,6 +57,9 @@ public class Game2Page2 extends AppCompatActivity {
         }
     }
 
+    /*
+    * loadNextEvent method displays all the events to the user
+    */
     public void loadNextEvent(int elementCounter, ArrayList eventsArray){
         if (elementCounter == eventsArray.size()) {
             eventShowerTV.setText("All Events Shown");
@@ -62,7 +70,8 @@ public class Game2Page2 extends AppCompatActivity {
     }
 
     /* the answerKeyGame2 function creates an arrayList that holds the answer key for
-     *  the specific time period selected*/
+     *  the specific time period selected
+     */
     protected ArrayList answerKeyGame2(int year) {
         ArrayList<String> tempList = new ArrayList<>();
         Game2 game2 = new Game2();
@@ -98,11 +107,13 @@ public class Game2Page2 extends AppCompatActivity {
         return tempList;
     }
 
-    /* the start clock method uses the handler to run the runnable.*/
+    /* the startClock method uses the handler to run the runnable by scheduling messages from the runnable.
+    *   the .post() method causes the Runnable run to be added to the message queue. */
     public void startClock(){
         handler.post(run);
     }
 
+    /* runRunnable method initializes the Runnable to update the minute and seconds variables */
     public void runRunnable(){
         run = new Runnable() {
             @Override
@@ -137,6 +148,7 @@ public class Game2Page2 extends AppCompatActivity {
     //                                      METHODS FOR VIEW VISIBILITY                                      //
     //******************************************************************************************************//
 
+    /* page1Visibility method displays the year selection page for game 2 */
     public void page1visibility(boolean visible){
 
         if(visible) {
@@ -166,6 +178,7 @@ public class Game2Page2 extends AppCompatActivity {
         }
     }
 
+    /* page1Visibility method displays the event selection page for game 2 */
     public void page2visibility(boolean visible){
         if(visible){
             topImageView.setImageResource(R.drawable.doesthisbelonginthetimeline);
@@ -202,6 +215,11 @@ public class Game2Page2 extends AppCompatActivity {
     * Tag # 530 = c.530 BCE - c.327 BCE
     * Tag # 599 = c.599 BCE - c.483 BCE
     * */
+
+    /*
+    * yearOnClick method is the onClick method for all the the year selection buttons
+    *  It is responsible for keeping track of which year button on pressed
+    */
     public void yearOnClick(View view){
         //sets the button that is currently being pressed into the variable "buttonPressed"
         Button buttonPressed = (Button) view;
@@ -213,6 +231,8 @@ public class Game2Page2 extends AppCompatActivity {
         eventShowerTV.setText(game2Events.get(elementCounter));
     }
 
+    /* addToTimeLineOnClick method adds the event that is currently being shown to the SelectedEvents array list
+    *  in the Main Activity class. The SelectedEvents method stores the the events selected by the user to be added to the timeline */
     public void addToTimelineOnClick(View view){
         if(!gameOver) {
             mainActivity.setSelectedEvents(game2Events.get(elementCounter));
@@ -220,7 +240,7 @@ public class Game2Page2 extends AppCompatActivity {
             loadNextEvent(elementCounter, game2Events);
         }
     }
-
+    /* skipToNextOnClick method skips to the next event to be shown*/
     public void skipTonextOnClick(View view){
         if(!gameOver){
             ++elementCounter;
@@ -228,10 +248,9 @@ public class Game2Page2 extends AppCompatActivity {
         }
     }
 
-    /* 1) make a review and submit button
-    *  2) add tags for game twos events on the "checkSolution" method for timeline Activity
-    * */
 
+    /* submitOnClick opens the TimeLine activity page.
+    *  the .removeCallBacks() method removes any pending posts of Runnable run that are in the message queue.  */
     public void submitOnClick(View view){
         Intent intent = new Intent(this,Timeline.class);
         startActivity(intent);
@@ -240,6 +259,8 @@ public class Game2Page2 extends AppCompatActivity {
         mainActivity.setMinute(minute);
         second = 0;
         minute = 0;
+        music.pause();
+
     }
 
 
@@ -253,6 +274,10 @@ public class Game2Page2 extends AppCompatActivity {
 
         getSupportActionBar().hide();
         addAllEvents(); // adds all the possible events for game two into an arrayList
+
+        //Set up the mediaPlayer
+        music = MediaPlayer.create(this,R.raw.music);
+        music.start();
 
         //button initialization
         sixHundredBTN = findViewById(R.id.sixHundredBTN);

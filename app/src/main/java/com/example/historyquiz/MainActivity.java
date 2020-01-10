@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity  {
     private static int minute =0, second = 0;
     private  Handler handler = new Handler();
     private Runnable run;
+    private MediaPlayer music;
     //******************************************************************************************************//
     //                                           GETTERS / SETTERS                                          //
     //******************************************************************************************************//
@@ -79,6 +81,7 @@ public class MainActivity extends AppCompatActivity  {
     public void setSelectedEvents(String insert){
         selectedEvents.add(insert);
     }
+
 
 
 
@@ -352,6 +355,7 @@ public class MainActivity extends AppCompatActivity  {
     public void showTimelineOnClick(View view){
 
         openTimelineActivity();
+        music.pause();
         gameOver = true;
         handler.removeCallbacks(run); //uses the handler to tell runnable called "run" to stop running.
 
@@ -362,6 +366,7 @@ public class MainActivity extends AppCompatActivity  {
     public void gameTwoOnClick(View view){
         Intent intent = new Intent(this,Game2Page2.class);
         startActivity(intent);
+        music.pause();
     }
 
 
@@ -374,6 +379,10 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         addAllOptions(); // loads all the answer options of game one into the app.
+
+        //MediaPlayer initialization
+        music = MediaPlayer.create(this,R.raw.music);
+        music.start();
 
 
         //Button initializations
