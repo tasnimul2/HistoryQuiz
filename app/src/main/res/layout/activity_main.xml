@@ -106,8 +106,9 @@
         android:layout_width="212dp"
         android:layout_height="52dp"
         android:alpha="1"
-        android:background="@drawable/gameonecenter"
+        android:background="#320E48"
         android:onClick="gameOneOnClick"
+        android:text="Extra 1"
         android:textColor="#FAFAFA"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -116,15 +117,34 @@
         app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39" />
+        app:layout_constraintVertical_bias="0.82" />
+
+    <Button
+        android:id="@+id/AncientEgyptBTN"
+        android:layout_width="212dp"
+        android:layout_height="52dp"
+        android:alpha="1"
+        android:background="#320E48"
+        android:onClick="AncientEgyptOnClick"
+        android:text="Ancient Egypt"
+        android:textColor="#FAFAFA"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.37" />
 
     <Button
         android:id="@+id/game2BTN"
         android:layout_width="212dp"
         android:layout_height="52dp"
         android:alpha="1"
-        android:background="@drawable/gametwocenter"
+        android:background="#320E48"
         android:onClick="gameTwoOnClick"
+        android:text="Extra 2"
         android:textColor="#FAFAFA"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -133,7 +153,7 @@
         app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.93" />
 
     <TextView
         android:id="@+id/EventShowerTV"
@@ -184,21 +204,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.809" />
-
-    <Button
-        android:id="@+id/submitBTN"
-        android:layout_width="117dp"
-        android:layout_height="54dp"
-        android:alpha="0"
-        android:background="#FF9800"
-        android:onClick="submitOnClick"
-        android:text="SUBMIT"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.214"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.94" />
 
     <Button
         android:id="@+id/showTimelineBTN"

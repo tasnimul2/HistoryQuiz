@@ -24,8 +24,9 @@ public class MainActivity extends AppCompatActivity  {
     private static ArrayList<String> selectedEvents = new ArrayList<>();
     private Game1 game1Options = new Game1();
     private TextView topTextBarTV, eventShowerTV , timeTV;
-    private Button  game1SelectionBTN, game2SelectionBTN, addToTimelineBTN, skipToNextBTN, submitBTN,showTimelineBTN;
+    private Button  game1SelectionBTN, game2SelectionBTN, addToTimelineBTN, skipToNextBTN,showTimelineBTN;
     private Button nineteenTwentiesBTN,twentynineTo33BTN,nineteenThirtiesBTN,twentyEightTo32BTN;
+    private Button AncientEgyptBTN;
     private static int elementCounter = 0;
     private static int buttonYear;
     private boolean gameOver = false;
@@ -210,16 +211,20 @@ public class MainActivity extends AppCompatActivity  {
         if(visible){
             game1SelectionBTN.setVisibility(View.VISIBLE);
             game2SelectionBTN.setVisibility(View.VISIBLE);
+            AncientEgyptBTN.setVisibility(View.VISIBLE);
             topTextBarTV.setText("");
             game1SelectionBTN.setEnabled(true);
             game2SelectionBTN.setEnabled(true);
+            AncientEgyptBTN.setEnabled(true);
             topImageView.setImageResource(R.drawable.selectgame);
         }
         if(!visible){
             game1SelectionBTN.setVisibility(View.INVISIBLE);
             game2SelectionBTN.setVisibility(View.INVISIBLE);
+            AncientEgyptBTN.setVisibility(View.INVISIBLE);
             game1SelectionBTN.setEnabled(false);
             game2SelectionBTN.setEnabled(false);
+            AncientEgyptBTN.setEnabled(false);
 
         }
 
@@ -270,20 +275,16 @@ public class MainActivity extends AppCompatActivity  {
             showTimelineBTN.setAlpha(1);
             addToTimelineBTN.setVisibility(View.VISIBLE);
             skipToNextBTN.setVisibility(View.VISIBLE);
-            submitBTN.setVisibility(View.VISIBLE);
             showTimelineBTN.setVisibility(View.VISIBLE);
 
             addToTimelineBTN.setEnabled(true);
             skipToNextBTN.setEnabled(true);
-            submitBTN.setEnabled(true);
             showTimelineBTN.setEnabled(true);
-            submitBTN.setEnabled(false);
             clock();
         }
         if(!visible){
             addToTimelineBTN.setVisibility(View.INVISIBLE);
             skipToNextBTN.setVisibility(View.INVISIBLE);
-            submitBTN.setVisibility(View.INVISIBLE);
             showTimelineBTN.setVisibility(View.VISIBLE);
             addToTimelineBTN.setEnabled(false);
             skipToNextBTN.setEnabled(false);
@@ -369,6 +370,10 @@ public class MainActivity extends AppCompatActivity  {
         music.pause();
     }
 
+    public void AncientEgyptOnClick(View view){
+
+    }
+
 
 
 
@@ -395,7 +400,8 @@ public class MainActivity extends AppCompatActivity  {
         game2SelectionBTN =  findViewById(R.id.game2BTN);
         addToTimelineBTN = findViewById(R.id.addToTimelineBTN);
         skipToNextBTN = findViewById(R.id.skipToNextBTN);
-        submitBTN = findViewById(R.id.submitBTN);
+        AncientEgyptBTN = findViewById(R.id.AncientEgyptBTN);
+
         showTimelineBTN = findViewById(R.id.showTimelineBTN);
         //Text View initializations
         topTextBarTV = findViewById(R.id.topTextBarTV);
