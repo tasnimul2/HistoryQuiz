@@ -377,6 +377,12 @@ public class MainActivity extends AppCompatActivity  {
         music.pause();
     }
 
+    public void ancientGreeceOnClick(View view){
+        Intent intent = new Intent(this,GreeceActivity.class);
+        startActivity(intent);
+        music.pause();
+    }
+
 
 
 

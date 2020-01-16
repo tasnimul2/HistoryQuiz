@@ -244,4 +244,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.24000001" />
 
+    <Button
+        android:id="@+id/ancientGreeceBTN"
+        android:layout_width="212dp"
+        android:layout_height="52dp"
+        android:background="#320E48"
+        android:onClick="ancientGreeceOnClick"
+        android:text="Ancient Greece"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AncientEgyptBTN"
+        app:layout_constraintVertical_bias="0.06999999" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
