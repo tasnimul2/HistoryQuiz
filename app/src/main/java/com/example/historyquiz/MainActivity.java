@@ -250,6 +250,7 @@ public class MainActivity extends AppCompatActivity  {
             twentynineTo33BTN.setEnabled(true);
             nineteenThirtiesBTN.setEnabled(true);
             twentyEightTo32BTN.setEnabled(true);
+            music.pause();
         }
 
         if(!visible){
@@ -265,7 +266,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     /*
-    * yesAndNoButtonVisibility makes the "add event to timeline" and "go to the next event" buttons
+    *  makes the "add event to timeline" and "go to the next event" buttons
     * either visible or invisible
     * */
     public void page3Visibility(boolean visible){
@@ -371,7 +372,9 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     public void AncientEgyptOnClick(View view){
-
+        Intent intent = new Intent(this,EgyptActivity.class);
+        startActivity(intent);
+        music.pause();
     }
 
 

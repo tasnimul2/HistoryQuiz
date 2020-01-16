@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">History Puzzle</string>
     <string name="tells_you_the_current_event">Tells you the current event</string>
+    <string name="yes_add_to_timeline">Yes, Add to Timeline</string>
+    <string name="nope_show_next_event">Nope, Show Next Event</string>
+    <string name="_1640_bce_1570_bce">1640 BCE-1570 BCE</string>
+    <string name="_1570_bce_1075_bce_military">1570 BCE – 1075 BCE (Military)</string>
+    <string name="_1570_bce_1075_bce_political">1570 BCE – 1075 BCE (Political)</string>
+    <string name="_1285_bce_military_art_literature">1285 BCE (Military, Art, Literature)</string>
 </resources>
