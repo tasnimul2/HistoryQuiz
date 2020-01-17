@@ -45,7 +45,7 @@ public class EgyptActivity extends AppCompatActivity {
     //******************************************************************************************************//
 
     /*
-     * the addAllEvents method loads up all the possible events for game 2 in to the arrayList game2Events
+     * the addAllEvents method loads up all the possible events for Ancient Egypt in to the arrayList ancientEgyptEvents
      */
     public void addAllEvents(){
         AncientEgypt game = new AncientEgypt();
@@ -258,7 +258,6 @@ public class EgyptActivity extends AppCompatActivity {
             loadNextEvent(elementCounter, ancientEgyptEvents);
         }
 
-        Log.i("Element Counter", ""+ elementCounter);
     }
 
     public void skipTonextOnClick(View view){
@@ -266,7 +265,7 @@ public class EgyptActivity extends AppCompatActivity {
             ++elementCounter;
             loadNextEvent(elementCounter,ancientEgyptEvents);
         }
-        Log.i("Element Counter", ""+ elementCounter);
+
     }
 
     public void submitOnClick(View view){

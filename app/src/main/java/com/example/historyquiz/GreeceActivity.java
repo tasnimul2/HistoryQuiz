@@ -2,11 +2,16 @@ package com.example.historyquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class GreeceActivity extends AppCompatActivity {
 
@@ -16,6 +21,88 @@ public class GreeceActivity extends AppCompatActivity {
     private Button eighthundredGeneralBTN,eighthundredCultureBTN,sevenhundredSocioBTN,sevenhundredMilitaryBTN;
     private Button addToTimelineBTN,skipToNextBTN , submitBTN;
     private ImageView topImageView;
+    private TextView eventShowerTV;
+    private int elementCounter = 0;
+    private boolean gameOver = false;
+    private ArrayList<String> ancientGreeceEvents = new ArrayList<>();
+
+
+
+    //******************************************************************************************************//
+    //                        METHODS FOR COMPUTATIONS/ OTHER TASKS (Helper Methods )                       //
+    //******************************************************************************************************//
+
+    /*
+     * the addAllEvents method loads up all the possible events for game 2 in to the arrayList game2Events
+     */
+    public void addAllEvents() {
+        AncientGreece game = new AncientGreece();
+        for (int i = 0; i < 4; i++) {
+            ancientGreeceEvents.add(game.date1(i));
+            ancientGreeceEvents.add(game.date2(i));
+            ancientGreeceEvents.add(game.date3(i));
+            ancientGreeceEvents.add(game.date4(i));
+        }
+
+        for(int i = 0; i< ancientGreeceEvents.size(); i++){
+            Log.i("Event # " + i , ""+ ancientGreeceEvents.get(i));
+        }
+    }
+
+    public void loadNextEvent(int elementCounter, ArrayList eventsArray){
+        if (elementCounter == eventsArray.size()) {
+            eventShowerTV.setText("All Events Shown");
+            gameOver = true;
+        } else {
+            eventShowerTV.setText(""+eventsArray.get(elementCounter));
+        }
+    }
+
+    /*
+     * Tag #s to Note:
+     * Tag # 8001 (ie 800-1) = 800 BCE-500 BCE (General)
+     * Tag # 8002 (ie 800-2) = 800 BCE-500 BCE (Culture)
+     * Tag # 7001 (ie 700-1) = 700 BCE – 479 BCE (Socio-political)
+     * Tag # 7002 (ie 700-2) = 700 BCE -479 BCE (Military, Diplomacy)
+     *
+     */
+
+
+
+    protected ArrayList answerKeyGreece(int year) {
+        ArrayList<String> tempList = new ArrayList<>();
+        AncientGreece game = new AncientGreece();
+
+        switch (year) {
+            case 8001:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game.date1(i));
+                }
+                break;
+            case 8002:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game.date2(i));
+                }
+                break;
+
+            case 7001:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game.date3(i));
+                }
+                break;
+
+            case 7002:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game.date4(i));
+                }
+                break;
+
+            default:
+                Toast.makeText(this, "Error has Occurred", Toast.LENGTH_SHORT).show();
+
+        }
+        return tempList;
+    }
 
 
     //*******************************************************************************************************//
@@ -121,20 +208,29 @@ public class GreeceActivity extends AppCompatActivity {
 
         page1visibility(false);
         page2visibility(true);
-        //eventShowerTV.setText(ancientEgyptEvents.get(elementCounter));
+        eventShowerTV.setText(ancientGreeceEvents.get(elementCounter));
 
     }
 
     public void addToTimelineOnClick(View view){
 
+        if(!gameOver) {
+            mainActivity.setSelectedEvents(ancientGreeceEvents.get(elementCounter));
+            ++elementCounter;
+            loadNextEvent(elementCounter, ancientGreeceEvents);
+        }
     }
 
     public void skipTonextOnClick(View view){
-
+        if(!gameOver){
+            ++elementCounter;
+            loadNextEvent(elementCounter,ancientGreeceEvents);
+        }
     }
 
     public void submitOnClick(View view){
-
+        Intent intent = new Intent(this,Timeline.class);
+        startActivity(intent);
     }
 
 
@@ -145,6 +241,7 @@ public class GreeceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_greece);
 
         getSupportActionBar().hide();
+        addAllEvents();
 
         //button initialization
         eighthundredGeneralBTN = findViewById(R.id.eighthundredGeneralBTN);
@@ -160,6 +257,8 @@ public class GreeceActivity extends AppCompatActivity {
         topImageView = findViewById(R.id.topImageView);
 
 
+        //TextView initialization
+        eventShowerTV = findViewById(R.id.eventShowerTV);
 
         //setAlplha
 

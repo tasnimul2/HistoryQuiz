@@ -25,6 +25,7 @@ public class Timeline extends AppCompatActivity  {
     private ImageView topImageView;
     private Game2Page2 game2Page2 = new Game2Page2();
     private EgyptActivity ancientEgypt = new EgyptActivity();
+    private GreeceActivity ancientGreece = new GreeceActivity();
 
 
 
@@ -125,6 +126,18 @@ public class Timeline extends AppCompatActivity  {
                 break;
             case 1285:
                 checkSolution(userSelection,ancientEgypt.answerKeyEgypt(1285));
+                break;
+            case 8001:
+                checkSolution(userSelection,ancientGreece.answerKeyGreece(8001));
+                break;
+            case 8002:
+                checkSolution(userSelection,ancientGreece.answerKeyGreece(8002));
+                break;
+            case 7001:
+                checkSolution(userSelection,ancientGreece.answerKeyGreece(7001));
+                break;
+            case 7002:
+                checkSolution(userSelection,ancientGreece.answerKeyGreece(7002));
                 break;
             default:
                 Toast.makeText(this,"Error has Occurred",Toast.LENGTH_SHORT).show();
