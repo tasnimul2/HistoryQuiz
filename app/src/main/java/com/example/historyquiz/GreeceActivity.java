@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -21,10 +22,13 @@ public class GreeceActivity extends AppCompatActivity {
     private Button eighthundredGeneralBTN,eighthundredCultureBTN,sevenhundredSocioBTN,sevenhundredMilitaryBTN;
     private Button addToTimelineBTN,skipToNextBTN , submitBTN;
     private ImageView topImageView;
-    private TextView eventShowerTV;
+    private TextView eventShowerTV,timeTV;
     private int elementCounter = 0;
     private boolean gameOver = false;
     private ArrayList<String> ancientGreeceEvents = new ArrayList<>();
+    private static int minute = 0, second = 0;
+    private Handler handler = new Handler();
+    private Runnable run;
 
 
 
@@ -104,6 +108,38 @@ public class GreeceActivity extends AppCompatActivity {
         return tempList;
     }
 
+    /* the startClock method uses the handler to run the runnable by scheduling messages from the runnable.
+     *   the .post() method causes the Runnable run to be added to the message queue. */
+    public void startClock(){
+        handler.post(run);
+    }
+
+    /* runRunnable method initializes the Runnable to update the minute and seconds variables */
+    public void runRunnable(){
+        run = new Runnable() {
+            @Override
+            public void run() {
+                ++second;
+                if(second == 60){
+                    second = 0;
+                    ++minute;
+                }
+                if(second < 10 && minute < 10){
+                    timeTV.setText("0"+ minute + " : 0"+ second);
+                }else if(second < 10 && minute >= 10){
+                    timeTV.setText(""+ minute + " : 0"+ second);
+                }else if(second > 10 && minute < 10){
+                    timeTV.setText("0"+ minute + " : "+ second);
+                }else{
+                    timeTV.setText(""+ minute + " : "+ second);
+                }
+
+
+                handler.postDelayed(this,1000);
+            }
+        };
+    }
+
 
     //*******************************************************************************************************//
     //                                      METHODS FOR VIEW VISIBILITY                                      //
@@ -163,7 +199,7 @@ public class GreeceActivity extends AppCompatActivity {
             addToTimelineBTN.setEnabled(true);
             skipToNextBTN.setEnabled(true);
             submitBTN.setEnabled(true);
-            //startClock();
+            startClock();
 
 
 
@@ -231,6 +267,12 @@ public class GreeceActivity extends AppCompatActivity {
     public void submitOnClick(View view){
         Intent intent = new Intent(this,Timeline.class);
         startActivity(intent);
+
+        handler.removeCallbacks(run); //uses the handler to tell runnable called "run" to stop running.
+        mainActivity.setSecond(second);
+        mainActivity.setMinute(minute);
+        second = 0;
+        minute = 0;
     }
 
 
@@ -259,6 +301,7 @@ public class GreeceActivity extends AppCompatActivity {
 
         //TextView initialization
         eventShowerTV = findViewById(R.id.eventShowerTV);
+        timeTV = findViewById(R.id.timeTV);
 
         //setAlplha
 
@@ -266,5 +309,7 @@ public class GreeceActivity extends AppCompatActivity {
         eighthundredCultureBTN.setAlpha(1);
         sevenhundredSocioBTN.setAlpha(1);
         sevenhundredMilitaryBTN.setAlpha(1);
+
+        runRunnable();
     }
 }

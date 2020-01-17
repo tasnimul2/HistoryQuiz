@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity  {
     private TextView topTextBarTV, eventShowerTV , timeTV;
     private Button  game1SelectionBTN, game2SelectionBTN, addToTimelineBTN, skipToNextBTN,showTimelineBTN;
     private Button nineteenTwentiesBTN,twentynineTo33BTN,nineteenThirtiesBTN,twentyEightTo32BTN;
-    private Button AncientEgyptBTN;
+    private Button AncientEgyptBTN, ancientGreeceBTN;
     private static int elementCounter = 0;
     private static int buttonYear;
     private boolean gameOver = false;
@@ -212,6 +212,7 @@ public class MainActivity extends AppCompatActivity  {
             game1SelectionBTN.setVisibility(View.VISIBLE);
             game2SelectionBTN.setVisibility(View.VISIBLE);
             AncientEgyptBTN.setVisibility(View.VISIBLE);
+            ancientGreeceBTN.setVisibility(View.VISIBLE);
             topTextBarTV.setText("");
             game1SelectionBTN.setEnabled(true);
             game2SelectionBTN.setEnabled(true);
@@ -222,6 +223,7 @@ public class MainActivity extends AppCompatActivity  {
             game1SelectionBTN.setVisibility(View.INVISIBLE);
             game2SelectionBTN.setVisibility(View.INVISIBLE);
             AncientEgyptBTN.setVisibility(View.INVISIBLE);
+            ancientGreeceBTN.setVisibility(View.INVISIBLE);
             game1SelectionBTN.setEnabled(false);
             game2SelectionBTN.setEnabled(false);
             AncientEgyptBTN.setEnabled(false);
@@ -404,12 +406,14 @@ public class MainActivity extends AppCompatActivity  {
         twentynineTo33BTN = findViewById(R.id.twentynineTo33BTN);
         nineteenThirtiesBTN = findViewById(R.id.nineteenThirtiesBTN);
         twentyEightTo32BTN = findViewById(R.id.twentyEightTo32BTN);
+
         
         game1SelectionBTN = findViewById(R.id.game1BTN);
         game2SelectionBTN =  findViewById(R.id.game2BTN);
         addToTimelineBTN = findViewById(R.id.addToTimelineBTN);
         skipToNextBTN = findViewById(R.id.skipToNextBTN);
         AncientEgyptBTN = findViewById(R.id.AncientEgyptBTN);
+        ancientGreeceBTN = findViewById(R.id.ancientGreeceBTN);
 
         showTimelineBTN = findViewById(R.id.showTimelineBTN);
         //Text View initializations
