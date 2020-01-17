@@ -406,9 +406,6 @@ public class MainActivity extends AppCompatActivity  {
         twentynineTo33BTN = findViewById(R.id.twentynineTo33BTN);
         nineteenThirtiesBTN = findViewById(R.id.nineteenThirtiesBTN);
         twentyEightTo32BTN = findViewById(R.id.twentyEightTo32BTN);
-
-
-
         game1SelectionBTN = findViewById(R.id.game1BTN);
         game2SelectionBTN =  findViewById(R.id.game2BTN);
         addToTimelineBTN = findViewById(R.id.addToTimelineBTN);
