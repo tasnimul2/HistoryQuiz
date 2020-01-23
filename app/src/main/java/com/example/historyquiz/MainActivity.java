@@ -385,6 +385,12 @@ public class MainActivity extends AppCompatActivity  {
         music.pause();
     }
 
+    public void ancientIndiaOnClick(View view){
+        Intent intent = new Intent(this,IndiaActivity.class);
+        startActivity(intent);
+        music.pause();
+    }
+
 
 
 

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IndiaActivity">
+
+    <Button
+        android:id="@+id/fifteenHundredGeneralBTN"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:alpha="1"
+        android:background="#3FBDF1"
+        android:tag="8001"
+        android:text="1500 BCE-500 BCE (General)"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.100000024" />
+
+    <Button
+        android:id="@+id/fifteenHundredArtBTN"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:alpha="1"
+        android:background="#3FBDF1"
+        android:tag="8001"
+        android:text="1500 BCE-400 CE (Art and Culture)"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.32999998" />
+
+    <Button
+        android:id="@+id/fifteenHundredReligionBTN"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:alpha="1"
+        android:background="#3FBDF1"
+        android:tag="8001"
+        android:text="1500 BCE – 500 BCE (Religion)"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <Button
+        android:id="@+id/fifteenHundredSocioBTN"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:alpha="1"
+        android:background="#3FBDF1"
+        android:tag="8001"
+        android:text="1500 BCE – 500 BCE (Socio-Political)"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.78" />
+
+    <ImageView
+        android:id="@+id/topImageView"
+        android:layout_width="274dp"
+        android:layout_height="144dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.112"
+        app:srcCompat="@drawable/selectyear" />
+</androidx.constraintlayout.widget.ConstraintLayout>
