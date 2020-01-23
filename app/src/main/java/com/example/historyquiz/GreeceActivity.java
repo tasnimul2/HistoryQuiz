@@ -48,9 +48,6 @@ public class GreeceActivity extends AppCompatActivity {
             ancientGreeceEvents.add(game.date4(i));
         }
 
-        for(int i = 0; i< ancientGreeceEvents.size(); i++){
-            Log.i("Event # " + i , ""+ ancientGreeceEvents.get(i));
-        }
     }
 
     public void loadNextEvent(int elementCounter, ArrayList eventsArray){

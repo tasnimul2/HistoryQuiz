@@ -2,11 +2,17 @@ package com.example.historyquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class IndiaActivity extends AppCompatActivity {
 
@@ -14,6 +20,121 @@ public class IndiaActivity extends AppCompatActivity {
     private Button fifteenHundredGeneralBTN,fifteenHundredArtBTN,fifteenHundredReligionBTN,fifteenHundredSocioBTN;
     private Button addToTimelineBTN,skipToNextBTN,submitBTN;
     private ImageView topImageView;
+    private TextView eventShowerTV, timeTV;
+    private ArrayList <String> ancientIndiaEvents = new ArrayList<>();
+    private int elementCounter = 0;
+    private boolean gameOver = false;
+    private static int minute = 0, second = 0;
+    private Handler handler = new Handler();
+    private Runnable run;
+
+
+    //******************************************************************************************************//
+    //                        METHODS FOR COMPUTATIONS/ OTHER TASKS (Helper Methods )                       //
+    //******************************************************************************************************//
+
+    /*
+     * the addAllEvents method loads up all the possible events for game 2 in to the arrayList game2Events
+     */
+    public void addAllEvents() {
+        AncientIndia game = new AncientIndia();
+        for (int i = 0; i < 4; i++) {
+            ancientIndiaEvents.add(game.date1(i));
+            ancientIndiaEvents.add(game.date2(i));
+            ancientIndiaEvents.add(game.date3(i));
+            ancientIndiaEvents.add(game.date4(i));
+        }
+
+    }
+
+
+    public void loadNextEvent(int elementCounter, ArrayList eventsArray){
+        if (elementCounter == eventsArray.size()) {
+            eventShowerTV.setText("All Events Shown");
+            gameOver = true;
+        } else {
+            eventShowerTV.setText(""+eventsArray.get(elementCounter));
+        }
+    }
+
+
+    /*
+     * Tag #s to Note:
+     * Tag # 15001 (ie 1500-1) = 1500 BCE – 500 BCE (General)
+     * Tag # 15002 (ie 1500-2) = 1500 BCE – 400 CE (Art and Culture)
+     * Tag # 15003 (ie 1500-3) = 1500 BCE – 500 BCE (Religion)
+     * Tag # 15004 (ie 1500-4) = 1500 BCE – 500 BCE (Socio-Political)
+     *
+     */
+
+    protected ArrayList answerKeyIndia(int year) {
+        ArrayList<String> tempList = new ArrayList<>();
+        AncientIndia game = new AncientIndia();
+
+        switch (year) {
+            case 15001:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game.date1(i));
+                }
+                break;
+            case 15002:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game.date2(i));
+                }
+                break;
+
+            case 15003:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game.date3(i));
+                }
+                break;
+
+            case 15004:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game.date4(i));
+                }
+                break;
+
+            default:
+                Toast.makeText(this, "Error has Occurred", Toast.LENGTH_SHORT).show();
+
+        }
+        return tempList;
+    }
+
+    /* the startClock method uses the handler to run the runnable by scheduling messages from the runnable.
+     *   the .post() method causes the Runnable run to be added to the message queue. */
+    public void startClock(){
+        handler.post(run);
+    }
+
+    /* runRunnable method initializes the Runnable to update the minute and seconds variables */
+    public void runRunnable(){
+        run = new Runnable() {
+            @Override
+            public void run() {
+                ++second;
+                if(second == 60){
+                    second = 0;
+                    ++minute;
+                }
+                if(second < 10 && minute < 10){
+                    timeTV.setText("0"+ minute + " : 0"+ second);
+                }else if(second < 10 && minute >= 10){
+                    timeTV.setText(""+ minute + " : 0"+ second);
+                }else if(second > 10 && minute < 10){
+                    timeTV.setText("0"+ minute + " : "+ second);
+                }else{
+                    timeTV.setText(""+ minute + " : "+ second);
+                }
+
+
+                handler.postDelayed(this,1000);
+            }
+        };
+    }
+
+
 
 
     //*******************************************************************************************************//
@@ -75,7 +196,7 @@ public class IndiaActivity extends AppCompatActivity {
             addToTimelineBTN.setEnabled(true);
             skipToNextBTN.setEnabled(true);
             submitBTN.setEnabled(true);
-            //startClock();
+            startClock();
 
 
 
@@ -119,23 +240,36 @@ public class IndiaActivity extends AppCompatActivity {
         //saves the tag number of that specific button that is pressed into "buttonYear"
         int year = Integer.parseInt(buttonPressed.getTag().toString());
         mainActivity.setButtonYear(year);
-        Toast.makeText(this,"Year# " + year, Toast.LENGTH_SHORT).show();
         page1visibility(false);
         page2visibility(true);
-        //eventShowerTV.setText(ancientGreeceEvents.get(elementCounter));
+        eventShowerTV.setText(ancientIndiaEvents.get(elementCounter));
+
 
     }
 
     public void submitOnClick(View view){
-
+        Intent intent = new Intent(this,Timeline.class);
+        startActivity(intent);
+        handler.removeCallbacks(run); //uses the handler to tell runnable called "run" to stop running.
+        mainActivity.setSecond(second);
+        mainActivity.setMinute(minute);
+        second = 0;
+        minute = 0;
     }
 
     public void skipTonextOnClick(View view){
-
+        if(!gameOver){
+            ++elementCounter;
+            loadNextEvent(elementCounter,ancientIndiaEvents);
+        }
     }
 
     public void addToTimelineOnClick(View view){
-
+        if(!gameOver) {
+            mainActivity.setSelectedEvents(ancientIndiaEvents.get(elementCounter));
+            ++elementCounter;
+            loadNextEvent(elementCounter, ancientIndiaEvents);
+        }
     }
 
     @Override
@@ -143,6 +277,7 @@ public class IndiaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_india);
         getSupportActionBar().hide();
+        addAllEvents();
 
 
 
@@ -160,12 +295,18 @@ public class IndiaActivity extends AppCompatActivity {
         //ImageView initialization
         topImageView = findViewById(R.id.topImageView);
 
+        //TextView initialization
+        eventShowerTV = findViewById(R.id.eventShowerTV);
+        timeTV = findViewById(R.id.timeTV);
+
 
         //Button alpha
         fifteenHundredGeneralBTN.setAlpha(1);
         fifteenHundredArtBTN.setAlpha(1);
         fifteenHundredReligionBTN.setAlpha(1);
         fifteenHundredSocioBTN.setAlpha(1);
+
+        runRunnable();
 
 
     }
