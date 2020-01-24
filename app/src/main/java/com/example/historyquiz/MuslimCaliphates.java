@@ -33,7 +33,7 @@ public class MuslimCaliphates {
     //______________________ Date 1: 632 CE-661 CE (Rashidun Caliphate)__________________//
     public String date1(int index){
         String[] answer = { "Caliphs Abu Bakr, Umar, Uthman, Ali",
-                "Rule by diwan (bureaucracy) &amp; sharia (law)",
+                "Rule by diwan (bureaucracy) & sharia (law)",
                 "Navy created by Uthman",
                 "First Fitna (civil war)"};
 
