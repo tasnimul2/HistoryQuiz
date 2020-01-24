@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity  {
     private TextView topTextBarTV, eventShowerTV , timeTV;
     private Button  game1SelectionBTN, game2SelectionBTN, addToTimelineBTN, skipToNextBTN,showTimelineBTN;
     private Button nineteenTwentiesBTN,twentynineTo33BTN,nineteenThirtiesBTN,twentyEightTo32BTN;
-    private Button AncientEgyptBTN, ancientGreeceBTN;
+    private Button AncientEgyptBTN, ancientGreeceBTN, ancientIndiaBTN, MuslimCaliphateBTN;
     private static int elementCounter = 0;
     private static int buttonYear;
     private boolean gameOver = false;
@@ -213,6 +213,8 @@ public class MainActivity extends AppCompatActivity  {
             game2SelectionBTN.setVisibility(View.VISIBLE);
             AncientEgyptBTN.setVisibility(View.VISIBLE);
             ancientGreeceBTN.setVisibility(View.VISIBLE);
+            ancientIndiaBTN.setVisibility(View.VISIBLE);
+            MuslimCaliphateBTN.setVisibility(View.VISIBLE);
             topTextBarTV.setText("");
             game1SelectionBTN.setEnabled(true);
             game2SelectionBTN.setEnabled(true);
@@ -224,6 +226,8 @@ public class MainActivity extends AppCompatActivity  {
             game2SelectionBTN.setVisibility(View.INVISIBLE);
             AncientEgyptBTN.setVisibility(View.INVISIBLE);
             ancientGreeceBTN.setVisibility(View.INVISIBLE);
+            ancientIndiaBTN.setVisibility(View.INVISIBLE);
+            MuslimCaliphateBTN.setVisibility(View.INVISIBLE);
             game1SelectionBTN.setEnabled(false);
             game2SelectionBTN.setEnabled(false);
             AncientEgyptBTN.setEnabled(false);
@@ -366,7 +370,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
 
-    /*once game two is selected, a separate game two page is opened*/
+    /*once game  is selected, a separate game two page is opened*/
     public void gameTwoOnClick(View view){
         Intent intent = new Intent(this,Game2Page2.class);
         startActivity(intent);
@@ -387,6 +391,12 @@ public class MainActivity extends AppCompatActivity  {
 
     public void ancientIndiaOnClick(View view){
         Intent intent = new Intent(this,IndiaActivity.class);
+        startActivity(intent);
+        music.pause();
+    }
+
+    public void MuslimCaliphatesOnClick(View view){
+        Intent intent = new Intent(this,MuslimActivity.class);
         startActivity(intent);
         music.pause();
     }
@@ -418,6 +428,8 @@ public class MainActivity extends AppCompatActivity  {
         skipToNextBTN = findViewById(R.id.skipToNextBTN);
         AncientEgyptBTN = findViewById(R.id.AncientEgyptBTN);
         ancientGreeceBTN = findViewById(R.id.ancientGreeceBTN);
+        ancientIndiaBTN = findViewById(R.id.ancientIndiaBTN);
+        MuslimCaliphateBTN = findViewById(R.id. MuslimCaliphateBTN);
 
         showTimelineBTN = findViewById(R.id.showTimelineBTN);
         //Text View initializations
