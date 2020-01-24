@@ -48,9 +48,6 @@ public class MuslimActivity extends AppCompatActivity {
             muslimCaliphatesEvents.add(game.date4(i));
         }
 
-        for(int i = 0; i < muslimCaliphatesEvents.size(); i++){
-            Log.i("Event # " + i," "+ muslimCaliphatesEvents.get(i));
-        }
 
     }
 
@@ -254,7 +251,6 @@ public class MuslimActivity extends AppCompatActivity {
         int year = Integer.parseInt(buttonPressed.getTag().toString());
         mainActivity.setButtonYear(year);
         page1visibility(false);
-        Toast.makeText(this,"Tag # " + year , Toast.LENGTH_SHORT).show();
         page2visibility(true);
         eventShowerTV.setText(muslimCaliphatesEvents.get(elementCounter));
     }
