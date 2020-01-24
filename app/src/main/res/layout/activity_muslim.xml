@@ -6,4 +6,168 @@
     android:layout_height="match_parent"
     tools:context=".MuslimActivity">
 
+    <TextView
+        android:id="@+id/timeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <TextView
+        android:id="@+id/eventShowerTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:fontFamily="sans-serif-smallcaps"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.19" />
+
+    <Button
+        android:id="@+id/submitBTN"
+        android:layout_width="129dp"
+        android:layout_height="54dp"
+        android:alpha="0"
+        android:background="#FF5722"
+        android:onClick="submitOnClick"
+        android:text="Review And Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/skipToNextBTN"
+        app:layout_constraintVertical_bias="0.477" />
+
+    <Button
+        android:id="@+id/skipToNextBTN"
+        android:layout_width="229dp"
+        android:layout_height="53dp"
+        android:alpha="0"
+        android:background="#E91E47"
+        android:onClick="skipTonextOnClick"
+        android:text="@string/nope_show_next_event"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addToTimelineBTN"
+        app:layout_constraintVertical_bias="0.224" />
+
+    <Button
+        android:id="@+id/addToTimelineBTN"
+        android:layout_width="229dp"
+        android:layout_height="53dp"
+        android:alpha="0"
+        android:background="#4CAF50"
+        android:onClick="addToTimelineOnClick"
+        android:text="@string/yes_add_to_timeline"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <Button
+        android:id="@+id/sixThrityTwoBTN"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:alpha="0"
+        android:background="#3FBDF1"
+        android:onClick="yearOnClick"
+        android:tag="632"
+        android:text="632 CE-661 CE (Rashidun Caliphate)"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.100000024" />
+
+    <Button
+        android:id="@+id/sixSixtyOneBTN"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:alpha="0"
+        android:background="#3FBDF1"
+        android:onClick="yearOnClick"
+        android:tag="661"
+        android:text="661 CE-750 CE (Political)"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.32999998" />
+
+    <Button
+        android:id="@+id/sevenFiftyBTN"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:alpha="0"
+        android:background="#3FBDF1"
+        android:onClick="yearOnClick"
+        android:tag="750"
+        android:text="750 CE -1258 CE (Political, Cultural)"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <Button
+        android:id="@+id/sevenFiftySixBTN"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:alpha="0"
+        android:background="#3FBDF1"
+        android:onClick="yearOnClick"
+        android:tag="756"
+        android:text="756 CE – 1453 (Political, Cultural)"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.78" />
+
+    <ImageView
+        android:id="@+id/topImageView"
+        android:layout_width="274dp"
+        android:layout_height="144dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.112"
+        app:srcCompat="@drawable/selectyear" />
 </androidx.constraintlayout.widget.ConstraintLayout>
