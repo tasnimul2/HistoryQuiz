@@ -64,6 +64,85 @@ public class MuslimActivity extends AppCompatActivity {
         }
     }
 
+
+
+    /*
+     * Tag #s to Note:
+     * Tag # 632 = 632 CE-661 CE (Rashidun Caliphate)
+     * Tag # 661 = 661 CE-750 CE (Political)
+     * Tag # 750 = 750 CE -1258 CE (Political, Cultural)
+     * Tag # 756 = 756 CE – 1453 (Political, Cultural)
+     *
+     */
+
+    protected ArrayList answerKeyMuslimCaliphates(int year) {
+        ArrayList<String> tempList = new ArrayList<>();
+        MuslimCaliphates game = new MuslimCaliphates();
+
+        switch (year) {
+            case 632:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game.date1(i));
+                }
+                break;
+            case 661:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game.date2(i));
+                }
+                break;
+
+            case 750:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game.date3(i));
+                }
+                break;
+
+            case 756:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game.date4(i));
+                }
+                break;
+
+            default:
+                Toast.makeText(this, "Error has Occurred", Toast.LENGTH_SHORT).show();
+
+        }
+        return tempList;
+    }
+
+
+    /* the startClock method uses the handler to run the runnable by scheduling messages from the runnable.
+     *   the .post() method causes the Runnable run to be added to the message queue. */
+    public void startClock(){
+        handler.post(run);
+    }
+
+    /* runRunnable method initializes the Runnable to update the minute and seconds variables */
+    public void runRunnable(){
+        run = new Runnable() {
+            @Override
+            public void run() {
+                ++second;
+                if(second == 60){
+                    second = 0;
+                    ++minute;
+                }
+                if(second < 10 && minute < 10){
+                    timeTV.setText("0"+ minute + " : 0"+ second);
+                }else if(second < 10 && minute >= 10){
+                    timeTV.setText(""+ minute + " : 0"+ second);
+                }else if(second > 10 && minute < 10){
+                    timeTV.setText("0"+ minute + " : "+ second);
+                }else{
+                    timeTV.setText(""+ minute + " : "+ second);
+                }
+
+
+                handler.postDelayed(this,1000);
+            }
+        };
+    }
+
     //*******************************************************************************************************//
     //                                      METHODS FOR VIEW VISIBILITY                                      //
     //******************************************************************************************************//
@@ -84,14 +163,13 @@ public class MuslimActivity extends AppCompatActivity {
 
 
 
-
             topImageView.setImageResource(R.drawable.selectyear);
-/*
+
             addToTimelineBTN.setEnabled(false);
             skipToNextBTN.setEnabled(false);
             submitBTN.setEnabled(false);
 
-             */
+
 
 
         }
@@ -126,7 +204,7 @@ public class MuslimActivity extends AppCompatActivity {
             addToTimelineBTN.setEnabled(true);
             skipToNextBTN.setEnabled(true);
             submitBTN.setEnabled(true);
-            //startClock();
+            startClock();
 
 
 
@@ -245,5 +323,7 @@ public class MuslimActivity extends AppCompatActivity {
         sixSixtyOneBTN.setAlpha(1);
         sevenFiftyBTN.setAlpha(1);
         sevenFiftySixBTN.setAlpha(1);
+
+        runRunnable();
     }
 }
