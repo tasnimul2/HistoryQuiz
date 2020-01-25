@@ -223,8 +223,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.87" />
+        app:layout_constraintTop_toBottomOf="@+id/MuslimCaliphateBTN"
+        app:layout_constraintVertical_bias="0.232" />
 
     <Button
         android:id="@+id/AncientEgyptBTN"
@@ -295,8 +295,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AncientEgyptBTN"
-        app:layout_constraintVertical_bias="0.48000002" />
+        app:layout_constraintTop_toBottomOf="@+id/ancientIndiaBTN"
+        app:layout_constraintVertical_bias="0.23000002" />
 
     <Button
         android:id="@+id/MuslimCaliphateBTN"
