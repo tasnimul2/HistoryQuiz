@@ -59,6 +59,84 @@ public class ReformationActivity extends AppCompatActivity {
     }
 
 
+    /*
+     * Tag #s to Note:
+     * Tag # 1517                 =  1517 – 1564 (Martin Luther and John Calvin)
+     * Tag # 1527                 =  1527-1559 (English Reformation)
+     * Tag # 15341 (ie. 1534 - 1) =  1534-1563 (Catholic Reformation, People)
+     * Tag # 15342 (ie. 1534 - 2) =  1534-1563 (Catholic Reformation, Institutions)
+     *
+     */
+
+    protected ArrayList answerKeyEuropeReformation(int year) {
+        ArrayList<String> tempList = new ArrayList<>();
+        EuropeReformation game = new EuropeReformation();
+
+        switch (year) {
+            case 1517:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game.date1(i));
+                }
+                break;
+            case 1527:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game.date2(i));
+                }
+                break;
+
+            case 15341:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game.date3(i));
+                }
+                break;
+
+            case 15342:
+                for (int i = 0; i < 4; i++) {
+                    tempList.add(game.date4(i));
+                }
+                break;
+
+            default:
+                Toast.makeText(this, "Error has Occurred", Toast.LENGTH_SHORT).show();
+
+        }
+        return tempList;
+    }
+
+
+    /* the startClock method uses the handler to run the runnable by scheduling messages from the runnable.
+     *   the .post() method causes the Runnable run to be added to the message queue. */
+    public void startClock(){
+        handler.post(run);
+    }
+
+    /* runRunnable method initializes the Runnable to update the minute and seconds variables */
+    public void runRunnable(){
+        run = new Runnable() {
+            @Override
+            public void run() {
+                ++second;
+                if(second == 60){
+                    second = 0;
+                    ++minute;
+                }
+                if(second < 10 && minute < 10){
+                    timeTV.setText("0"+ minute + " : 0"+ second);
+                }else if(second < 10 && minute >= 10){
+                    timeTV.setText(""+ minute + " : 0"+ second);
+                }else if(second > 10 && minute < 10){
+                    timeTV.setText("0"+ minute + " : "+ second);
+                }else{
+                    timeTV.setText(""+ minute + " : "+ second);
+                }
+
+
+                handler.postDelayed(this,1000);
+            }
+        };
+    }
+
+
     //*******************************************************************************************************//
     //                                      METHODS FOR VIEW VISIBILITY                                      //
     //******************************************************************************************************//
@@ -120,7 +198,7 @@ public class ReformationActivity extends AppCompatActivity {
             addToTimelineBTN.setEnabled(true);
             skipToNextBTN.setEnabled(true);
             submitBTN.setEnabled(true);
-           // startClock();
+            startClock();
 
 
 
@@ -165,7 +243,6 @@ public class ReformationActivity extends AppCompatActivity {
         //saves the tag number of that specific button that is pressed into "buttonYear"
         int year = Integer.parseInt(buttonPressed.getTag().toString());
         mainActivity.setButtonYear(year);
-        Toast.makeText(this, "TAG # " + year , Toast.LENGTH_SHORT).show();
         page1visibility(false);
         page2visibility(true);
         eventShowerTV.setText(reformationEvents.get(elementCounter));
@@ -238,5 +315,8 @@ public class ReformationActivity extends AppCompatActivity {
         eventShowerTV = findViewById(R.id.eventShowerTV);
         timeTV = findViewById(R.id.timeTV);
 
+
+        page1visibility(true);
+        runRunnable();
     }
 }

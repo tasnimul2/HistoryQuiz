@@ -29,6 +29,7 @@ public class Timeline extends AppCompatActivity  {
     private GreeceActivity ancientGreece = new GreeceActivity();
     private IndiaActivity ancientIndia = new IndiaActivity();
     private MuslimActivity muslimCaliphates = new MuslimActivity();
+    private ReformationActivity reformationActivity = new ReformationActivity();
 
 
 
@@ -165,6 +166,18 @@ public class Timeline extends AppCompatActivity  {
                 break;
             case 756:
                 checkSolution(userSelection,muslimCaliphates.answerKeyMuslimCaliphates(756));
+                break;
+            case 1517:
+                checkSolution(userSelection,reformationActivity.answerKeyEuropeReformation(1517));
+                break;
+            case 1527:
+                checkSolution(userSelection,reformationActivity.answerKeyEuropeReformation(1527));
+                break;
+            case 15341:
+                checkSolution(userSelection,reformationActivity.answerKeyEuropeReformation(15341));
+                break;
+            case 15342:
+                checkSolution(userSelection,reformationActivity.answerKeyEuropeReformation(15342));
                 break;
             default:
                 Toast.makeText(this,"Error has Occurred",Toast.LENGTH_SHORT).show();
