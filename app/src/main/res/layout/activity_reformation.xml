@@ -6,4 +6,168 @@
     android:layout_height="match_parent"
     tools:context=".ReformationActivity">
 
+    <TextView
+        android:id="@+id/eventShowerTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:fontFamily="sans-serif-smallcaps"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.19" />
+
+    <TextView
+        android:id="@+id/timeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <Button
+        android:id="@+id/submitBTN"
+        android:layout_width="129dp"
+        android:layout_height="54dp"
+        android:alpha="0"
+        android:background="#FF5722"
+        android:onClick="submitOnClick"
+        android:text="Review And Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/skipToNextBTN"
+        app:layout_constraintVertical_bias="0.477" />
+
+    <Button
+        android:id="@+id/skipToNextBTN"
+        android:layout_width="229dp"
+        android:layout_height="53dp"
+        android:alpha="0"
+        android:background="#E91E47"
+        android:onClick="skipTonextOnClick"
+        android:text="@string/nope_show_next_event"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addToTimelineBTN"
+        app:layout_constraintVertical_bias="0.224" />
+
+    <Button
+        android:id="@+id/addToTimelineBTN"
+        android:layout_width="229dp"
+        android:layout_height="53dp"
+        android:alpha="0"
+        android:background="#4CAF50"
+        android:onClick="addToTimelineOnClick"
+        android:text="@string/yes_add_to_timeline"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <Button
+        android:id="@+id/fifteenSeventeenBTN"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:alpha="0"
+        android:background="#3FBDF1"
+        android:onClick="yearOnClick"
+        android:tag="1517"
+        android:text="1517 – 1564 ( Martin Luther and John Calvin )"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.100000024" />
+
+    <Button
+        android:id="@+id/fifteenTwentysevenBTN"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:alpha="0"
+        android:background="#3FBDF1"
+        android:onClick="yearOnClick"
+        android:tag="1527"
+        android:text="1527-1559 (English Reformation)"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.32999998" />
+
+    <Button
+        android:id="@+id/fifteenThirtyfourPeopleBTN"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:alpha="0"
+        android:background="#3FBDF1"
+        android:onClick="yearOnClick"
+        android:tag="15341"
+        android:text="1534-1563 ( Catholic Reformation, People )"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <Button
+        android:id="@+id/fifteenThirtyfourInstitutionsBTN"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:alpha="0"
+        android:background="#3FBDF1"
+        android:onClick="yearOnClick"
+        android:tag="15342"
+        android:text="1534-1563 (Catholic Reformation, Institutions)"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.78" />
+
+    <ImageView
+        android:id="@+id/topImageView"
+        android:layout_width="274dp"
+        android:layout_height="144dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.112"
+        app:srcCompat="@drawable/selectyear" />
 </androidx.constraintlayout.widget.ConstraintLayout>

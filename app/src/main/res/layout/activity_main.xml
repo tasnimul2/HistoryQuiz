@@ -281,6 +281,24 @@
         app:layout_constraintVertical_bias="0.156" />
 
     <Button
+        android:id="@+id/reformationBTN"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:background="#320E48"
+        android:onClick="reformationOnClick"
+        android:text="Europe: Protestant and Catholic Reformation"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AncientEgyptBTN"
+        app:layout_constraintVertical_bias="0.48000002" />
+
+    <Button
         android:id="@+id/MuslimCaliphateBTN"
         android:layout_width="150dp"
         android:layout_height="60dp"
