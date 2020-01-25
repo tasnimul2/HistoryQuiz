@@ -306,6 +306,7 @@ public class IndiaActivity extends AppCompatActivity {
         fifteenHundredReligionBTN.setAlpha(1);
         fifteenHundredSocioBTN.setAlpha(1);
 
+        page1visibility(true);
         runRunnable();
 
 

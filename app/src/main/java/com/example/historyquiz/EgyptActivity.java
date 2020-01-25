@@ -295,7 +295,6 @@ public class EgyptActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         addAllEvents();
 
-
         //Button initialization
         sixteenFortyBTN = findViewById(R.id.sixteenFortyBTN);
         fifteenSeventyMilitaryBTN = findViewById(R.id.fifteenSeventyMilitaryBTN);

@@ -307,6 +307,7 @@ public class GreeceActivity extends AppCompatActivity {
         sevenhundredSocioBTN.setAlpha(1);
         sevenhundredMilitaryBTN.setAlpha(1);
 
+        page1visibility(true);
         runRunnable();
     }
 }

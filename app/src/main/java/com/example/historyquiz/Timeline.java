@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -188,16 +189,15 @@ public class Timeline extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
+        getSupportActionBar().hide();
 
         topTextBarTV = findViewById(R.id.topTextBarTV);
         timeTV = findViewById(R.id.timeTV);
         topImageView = findViewById(R.id.topImageView);
 
 
-
-        getSupportActionBar().setTitle("\tYOUR TIMELINE");
         ListView timelineListView = findViewById(R.id.timelineListView);
-
+        topTextBarTV.setText("SELECTED TIMELINE");
 
         /*
         * To make userSelection compatible with all games, put tag on game selection buttons

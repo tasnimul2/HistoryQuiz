@@ -294,7 +294,6 @@ public class MuslimActivity extends AppCompatActivity {
         addAllEvents();
 
 
-
         //Button initialization
         sixThrityTwoBTN = findViewById(R.id.sixThrityTwoBTN);
         sixSixtyOneBTN = findViewById(R.id.sixSixtyOneBTN);
@@ -320,6 +319,7 @@ public class MuslimActivity extends AppCompatActivity {
         sevenFiftyBTN.setAlpha(1);
         sevenFiftySixBTN.setAlpha(1);
 
+        page1visibility(true);
         runRunnable();
     }
 }

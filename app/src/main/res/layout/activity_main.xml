@@ -199,14 +199,14 @@
         android:onClick="gameOneOnClick"
         android:text="Extra 1"
         android:textColor="#FAFAFA"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.97" />
+        app:layout_constraintVertical_bias="0.87" />
 
     <Button
         android:id="@+id/game2BTN"
@@ -217,14 +217,14 @@
         android:onClick="gameTwoOnClick"
         android:text="Extra 2"
         android:textColor="#FAFAFA"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.97" />
+        app:layout_constraintVertical_bias="0.87" />
 
     <Button
         android:id="@+id/AncientEgyptBTN"
@@ -235,7 +235,7 @@
         android:onClick="AncientEgyptOnClick"
         android:text="Ancient Egypt"
         android:textColor="#FAFAFA"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -253,7 +253,7 @@
         android:text="Ancient Greece"
         android:textAllCaps="true"
         android:textColor="#FAFAFA"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -271,7 +271,7 @@
         android:text="Ancient India"
         android:textAllCaps="true"
         android:textColor="#FAFAFA"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -289,7 +289,7 @@
         android:onClick="MuslimCaliphatesOnClick"
         android:text="Muslim Caliphates"
         android:textColor="#FAFAFA"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
