@@ -199,14 +199,14 @@
         android:onClick="gameOneOnClick"
         android:text="Extra 1"
         android:textColor="#FAFAFA"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.87" />
+        app:layout_constraintVertical_bias="0.834" />
 
     <Button
         android:id="@+id/game2BTN"
@@ -217,14 +217,14 @@
         android:onClick="gameTwoOnClick"
         android:text="Extra 2"
         android:textColor="#FAFAFA"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.87" />
+        app:layout_constraintVertical_bias="0.834" />
 
     <Button
         android:id="@+id/AncientEgyptBTN"
@@ -235,14 +235,14 @@
         android:onClick="AncientEgyptOnClick"
         android:text="Ancient Egypt"
         android:textColor="#FAFAFA"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.37" />
+        app:layout_constraintVertical_bias="0.236" />
 
     <Button
         android:id="@+id/ancientGreeceBTN"
@@ -253,14 +253,14 @@
         android:text="Ancient Greece"
         android:textAllCaps="true"
         android:textColor="#FAFAFA"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintHorizontal_bias="0.97"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.37" />
+        app:layout_constraintVertical_bias="0.235" />
 
     <Button
         android:id="@+id/ancientIndiaBTN"
@@ -271,14 +271,14 @@
         android:text="Ancient India"
         android:textAllCaps="true"
         android:textColor="#FAFAFA"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AncientEgyptBTN"
-        app:layout_constraintVertical_bias="0.156" />
+        app:layout_constraintVertical_bias="0.074" />
 
     <Button
         android:id="@+id/reformationBTN"
@@ -286,17 +286,35 @@
         android:layout_height="60dp"
         android:background="#320E48"
         android:onClick="reformationOnClick"
-        android:text="Europe: Protestant and Catholic Reformation"
+        android:text="Europe:Protestant and Catholic Reformation"
         android:textAllCaps="true"
         android:textColor="#FAFAFA"
-        android:textSize="12sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ancientIndiaBTN"
-        app:layout_constraintVertical_bias="0.23000002" />
+        app:layout_constraintVertical_bias="0.079" />
+
+    <Button
+        android:id="@+id/WarsOfReligionBTN"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:background="#320E48"
+        android:onClick="WarsOfReligionOnClick"
+        android:text="Europe: Wars of Religion"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reformationBTN"
+        app:layout_constraintVertical_bias="0.120000005" />
 
     <Button
         android:id="@+id/MongolKhanatesBTN"
@@ -307,14 +325,14 @@
         android:text="Mongol Khanates"
         android:textAllCaps="true"
         android:textColor="#FAFAFA"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/MuslimCaliphateBTN"
-        app:layout_constraintVertical_bias="0.23000002" />
+        app:layout_constraintVertical_bias="0.083" />
 
     <Button
         android:id="@+id/MuslimCaliphateBTN"
@@ -325,13 +343,13 @@
         android:onClick="MuslimCaliphatesOnClick"
         android:text="Muslim Caliphates"
         android:textColor="#FAFAFA"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.973"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ancientGreeceBTN"
-        app:layout_constraintVertical_bias="0.159" />
+        app:layout_constraintVertical_bias="0.074" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
