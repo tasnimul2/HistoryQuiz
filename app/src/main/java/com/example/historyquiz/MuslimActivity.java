@@ -294,10 +294,10 @@ public class MuslimActivity extends AppCompatActivity {
 
 
         //Button initialization
-        sixThrityTwoBTN = findViewById(R.id.twelveSixBTN);
-        sixSixtyOneBTN = findViewById(R.id.twelveThirtyFiveBTN);
-        sevenFiftyBTN = findViewById(R.id.sevenFiftyBTN);
-        sevenFiftySixBTN = findViewById(R.id.twelveFiftyOneAsiaBTN);
+        sixThrityTwoBTN = findViewById(R.id.fifteenSeventyBTN);
+        sixSixtyOneBTN = findViewById(R.id.fifteenSixtyBTN);
+        sevenFiftyBTN = findViewById(R.id.fifteenFiftySixBTN);
+        sevenFiftySixBTN = findViewById(R.id.fifteenFiftyThreeBTN);
 
 
         addToTimelineBTN = findViewById(R.id.addToTimelineBTN);

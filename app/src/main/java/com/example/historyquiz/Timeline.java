@@ -31,6 +31,7 @@ public class Timeline extends AppCompatActivity  {
     private MuslimActivity muslimCaliphates = new MuslimActivity();
     private ReformationActivity reformationActivity = new ReformationActivity();
     private MongolActivity mongolActivity = new MongolActivity();
+    private WarsOfReligionActivity warsOfReligionActivity = new WarsOfReligionActivity();
 
 
 
@@ -191,6 +192,18 @@ public class Timeline extends AppCompatActivity  {
                 break;
             case 12512:
                 checkSolution(userSelection,mongolActivity.answerKeyMongolKhanates(12512));
+                break;
+            case 1570:
+                checkSolution(userSelection,warsOfReligionActivity.answerKeywarsOfReligion(1570));
+                break;
+            case 1560:
+                checkSolution(userSelection,warsOfReligionActivity.answerKeywarsOfReligion(1560));
+                break;
+            case 1556:
+                checkSolution(userSelection,warsOfReligionActivity.answerKeywarsOfReligion(1556));
+                break;
+            case 1553:
+                checkSolution(userSelection,warsOfReligionActivity.answerKeywarsOfReligion(1553));
                 break;
             default:
                 Toast.makeText(this,"Error has Occurred",Toast.LENGTH_SHORT).show();

@@ -84,7 +84,7 @@
         app:layout_constraintVertical_bias="0.55" />
 
     <Button
-        android:id="@+id/twelveSixBTN"
+        android:id="@+id/fifteenSeventyBTN"
         android:layout_width="198dp"
         android:layout_height="52dp"
         android:alpha="0"
@@ -103,7 +103,7 @@
         app:layout_constraintVertical_bias="0.100000024" />
 
     <Button
-        android:id="@+id/twelveThirtyFiveBTN"
+        android:id="@+id/fifteenSixtyBTN"
         android:layout_width="198dp"
         android:layout_height="52dp"
         android:alpha="0"
@@ -122,7 +122,7 @@
         app:layout_constraintVertical_bias="0.32999998" />
 
     <Button
-        android:id="@+id/sevenFiftyBTN"
+        android:id="@+id/fifteenFiftySixBTN"
         android:layout_width="198dp"
         android:layout_height="52dp"
         android:alpha="0"
@@ -141,7 +141,7 @@
         app:layout_constraintVertical_bias="0.55" />
 
     <Button
-        android:id="@+id/twelveFiftyOneAsiaBTN"
+        android:id="@+id/fifteenFiftyThreeBTN"
         android:layout_width="198dp"
         android:layout_height="52dp"
         android:alpha="0"

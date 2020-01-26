@@ -295,10 +295,10 @@ public class MongolActivity extends AppCompatActivity {
 
         //Button initialization
 
-        twelveSixBTN = findViewById(R.id.twelveSixBTN);
-        twelveThirtyFiveBTN = findViewById(R.id.twelveThirtyFiveBTN);
+        twelveSixBTN = findViewById(R.id.fifteenSeventyBTN);
+        twelveThirtyFiveBTN = findViewById(R.id.fifteenSixtyBTN);
         twelveFiftyOneMiddleEastBTN = findViewById(R.id.twelveFiftyOneMiddleEastBTN);
-        twelveFiftyOneAsiaBTN = findViewById(R.id.twelveFiftyOneAsiaBTN);
+        twelveFiftyOneAsiaBTN = findViewById(R.id.fifteenFiftyThreeBTN);
 
 
         addToTimelineBTN = findViewById(R.id.addToTimelineBTN);
