@@ -9,10 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WarsOfReligionActivity"></activity>
-        <activity android:name=".MongolActivity" />
-        <activity android:name=".ReformationActivity" />
-        <activity android:name=".MuslimActivity" />
+        <activity android:name=".WarsOfReligionActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".MongolActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ReformationActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MuslimActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".IndiaActivity"
             android:screenOrientation="portrait" />
