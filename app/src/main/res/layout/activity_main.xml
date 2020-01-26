@@ -299,6 +299,24 @@
         app:layout_constraintVertical_bias="0.23000002" />
 
     <Button
+        android:id="@+id/MongolKhanatesBTN"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:background="#320E48"
+        android:onClick="MongolKhanatesOnClick"
+        android:text="Mongol Khanates"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MuslimCaliphateBTN"
+        app:layout_constraintVertical_bias="0.23000002" />
+
+    <Button
         android:id="@+id/MuslimCaliphateBTN"
         android:layout_width="150dp"
         android:layout_height="60dp"

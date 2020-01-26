@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity  {
     private TextView topTextBarTV, eventShowerTV , timeTV;
     private Button  game1SelectionBTN, game2SelectionBTN, addToTimelineBTN, skipToNextBTN,showTimelineBTN;
     private Button nineteenTwentiesBTN,twentynineTo33BTN,nineteenThirtiesBTN,twentyEightTo32BTN;
-    private Button AncientEgyptBTN, ancientGreeceBTN, ancientIndiaBTN, MuslimCaliphateBTN, reformationBTN;
+    private Button AncientEgyptBTN, ancientGreeceBTN, ancientIndiaBTN, MuslimCaliphateBTN, reformationBTN , MongolKhanatesBTN;
     private static int elementCounter = 0;
     private static int buttonYear;
     private boolean gameOver = false;
@@ -216,6 +216,7 @@ public class MainActivity extends AppCompatActivity  {
             ancientIndiaBTN.setVisibility(View.VISIBLE);
             MuslimCaliphateBTN.setVisibility(View.VISIBLE);
             reformationBTN.setVisibility(View.VISIBLE);
+            MongolKhanatesBTN.setVisibility(View.VISIBLE);
 
             topTextBarTV.setText("");
             game1SelectionBTN.setEnabled(true);
@@ -231,6 +232,8 @@ public class MainActivity extends AppCompatActivity  {
             ancientIndiaBTN.setVisibility(View.INVISIBLE);
             MuslimCaliphateBTN.setVisibility(View.INVISIBLE);
             reformationBTN.setVisibility(View.INVISIBLE);
+            MongolKhanatesBTN.setVisibility(View.INVISIBLE);
+
             game1SelectionBTN.setEnabled(false);
             game2SelectionBTN.setEnabled(false);
             AncientEgyptBTN.setEnabled(false);
@@ -410,6 +413,12 @@ public class MainActivity extends AppCompatActivity  {
         music.pause();
     }
 
+    public void MongolKhanatesOnClick(View view){
+        Intent intent = new Intent(this,MongolActivity.class);
+        startActivity(intent);
+        music.pause();
+    }
+
 
 
 
@@ -440,6 +449,7 @@ public class MainActivity extends AppCompatActivity  {
         ancientIndiaBTN = findViewById(R.id.ancientIndiaBTN);
         MuslimCaliphateBTN = findViewById(R.id. MuslimCaliphateBTN);
         reformationBTN = findViewById(R.id.reformationBTN);
+        MongolKhanatesBTN = findViewById(R.id.MongolKhanatesBTN);
 
         showTimelineBTN = findViewById(R.id.showTimelineBTN);
         //Text View initializations
