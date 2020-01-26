@@ -6,4 +6,168 @@
     android:layout_height="match_parent"
     tools:context=".MongolActivity">
 
+    <Button
+        android:id="@+id/skipToNextBTN"
+        android:layout_width="229dp"
+        android:layout_height="53dp"
+        android:alpha="0"
+        android:background="#E91E47"
+        android:onClick="skipTonextOnClick"
+        android:text="@string/nope_show_next_event"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addToTimelineBTN"
+        app:layout_constraintVertical_bias="0.205" />
+
+    <Button
+        android:id="@+id/addToTimelineBTN"
+        android:layout_width="229dp"
+        android:layout_height="53dp"
+        android:alpha="0"
+        android:background="#4CAF50"
+        android:onClick="addToTimelineOnClick"
+        android:text="@string/yes_add_to_timeline"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.585" />
+
+    <Button
+        android:id="@+id/submitBTN"
+        android:layout_width="129dp"
+        android:layout_height="54dp"
+        android:alpha="0"
+        android:background="#FF5722"
+        android:onClick="submitOnClick"
+        android:text="Review And Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/skipToNextBTN"
+        app:layout_constraintVertical_bias="0.477" />
+
+    <TextView
+        android:id="@+id/eventShowerTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:fontFamily="sans-serif-smallcaps"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.19" />
+
+    <TextView
+        android:id="@+id/timeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <Button
+        android:id="@+id/twelveFiftyOneAsiaBTN"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:alpha="0"
+        android:background="#3FBDF1"
+        android:onClick="yearOnClick"
+        android:tag="12512"
+        android:text="1251-1292 (Mongol Invasion of East and Southeast Asia)"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.759" />
+
+    <Button
+        android:id="@+id/twelveFiftyOneMiddleEastBTN"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:alpha="0"
+        android:background="#3FBDF1"
+        android:onClick="yearOnClick"
+        android:tag="12511"
+        android:text="1251-1260 (Mongol Invasion of the Middle East)"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <Button
+        android:id="@+id/twelveThirtyFiveBTN"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:alpha="0"
+        android:background="#3FBDF1"
+        android:onClick="yearOnClick"
+        android:tag="1235"
+        android:text="1235-1241 (Mongol Invasion of Europe)"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.32999998" />
+
+    <Button
+        android:id="@+id/twelveSixBTN"
+        android:layout_width="198dp"
+        android:layout_height="52dp"
+        android:alpha="0"
+        android:background="#3FBDF1"
+        android:onClick="yearOnClick"
+        android:tag="1206"
+        android:text="1206-1220 (Mongol Unification, Conquest)"
+        android:textAllCaps="true"
+        android:textColor="#FAFAFA"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topImageView"
+        app:layout_constraintVertical_bias="0.100000024" />
+
+    <ImageView
+        android:id="@+id/topImageView"
+        android:layout_width="274dp"
+        android:layout_height="144dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.112"
+        app:srcCompat="@drawable/selectyear" />
 </androidx.constraintlayout.widget.ConstraintLayout>

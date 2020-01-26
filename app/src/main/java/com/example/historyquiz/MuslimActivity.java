@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -295,10 +294,10 @@ public class MuslimActivity extends AppCompatActivity {
 
 
         //Button initialization
-        sixThrityTwoBTN = findViewById(R.id.sixThrityTwoBTN);
-        sixSixtyOneBTN = findViewById(R.id.sixSixtyOneBTN);
+        sixThrityTwoBTN = findViewById(R.id.twelveSixBTN);
+        sixSixtyOneBTN = findViewById(R.id.twelveThirtyFiveBTN);
         sevenFiftyBTN = findViewById(R.id.sevenFiftyBTN);
-        sevenFiftySixBTN = findViewById(R.id.sevenFiftySixBTN);
+        sevenFiftySixBTN = findViewById(R.id.twelveFiftyOneAsiaBTN);
 
 
         addToTimelineBTN = findViewById(R.id.addToTimelineBTN);

@@ -30,6 +30,7 @@ public class Timeline extends AppCompatActivity  {
     private IndiaActivity ancientIndia = new IndiaActivity();
     private MuslimActivity muslimCaliphates = new MuslimActivity();
     private ReformationActivity reformationActivity = new ReformationActivity();
+    private MongolActivity mongolActivity = new MongolActivity();
 
 
 
@@ -178,6 +179,18 @@ public class Timeline extends AppCompatActivity  {
                 break;
             case 15342:
                 checkSolution(userSelection,reformationActivity.answerKeyEuropeReformation(15342));
+                break;
+            case 1206:
+                checkSolution(userSelection,mongolActivity.answerKeyMongolKhanates(1206));
+                break;
+            case 1235:
+                checkSolution(userSelection,mongolActivity.answerKeyMongolKhanates(1235));
+                break;
+            case 12511:
+                checkSolution(userSelection,mongolActivity.answerKeyMongolKhanates(12511));
+                break;
+            case 12512:
+                checkSolution(userSelection,mongolActivity.answerKeyMongolKhanates(12512));
                 break;
             default:
                 Toast.makeText(this,"Error has Occurred",Toast.LENGTH_SHORT).show();
