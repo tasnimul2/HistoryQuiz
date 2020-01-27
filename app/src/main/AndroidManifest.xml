@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.historyquiz">
+    package="com.techincubatorfreelance.historyquiz">
 
     <application
         android:allowBackup="true"
@@ -9,35 +9,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WarsOfReligionActivity"
+        <activity android:name="com.techincubatorfreelance.historyquiz.WarsOfReligionActivity"
             android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name=".MongolActivity"
+            android:name="com.techincubatorfreelance.historyquiz.MongolActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ReformationActivity"
+            android:name="com.techincubatorfreelance.historyquiz.ReformationActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".MuslimActivity"
+            android:name="com.techincubatorfreelance.historyquiz.MuslimActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".IndiaActivity"
+            android:name="com.techincubatorfreelance.historyquiz.IndiaActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GreeceActivity"
+            android:name="com.techincubatorfreelance.historyquiz.GreeceActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".EgyptActivity"
+            android:name="com.techincubatorfreelance.historyquiz.EgyptActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Game2Page2"
+            android:name="com.techincubatorfreelance.historyquiz.Game2Page2"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Timeline"
+            android:name="com.techincubatorfreelance.historyquiz.Timeline"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.techincubatorfreelance.historyquiz.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

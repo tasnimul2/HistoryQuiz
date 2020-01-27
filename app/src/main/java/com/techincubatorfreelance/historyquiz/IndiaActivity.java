@@ -1,4 +1,4 @@
-package com.example.historyquiz;
+package com.techincubatorfreelance.historyquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,21 +13,19 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MongolActivity extends AppCompatActivity {
+public class IndiaActivity extends AppCompatActivity {
 
     private  MainActivity mainActivity = new MainActivity();
-    private Button twelveSixBTN,twelveThirtyFiveBTN,twelveFiftyOneMiddleEastBTN,twelveFiftyOneAsiaBTN;
+    private Button fifteenHundredGeneralBTN,fifteenHundredArtBTN,fifteenHundredReligionBTN,fifteenHundredSocioBTN;
     private Button addToTimelineBTN,skipToNextBTN,submitBTN;
     private ImageView topImageView;
     private TextView eventShowerTV, timeTV;
-    private ArrayList<String> MongolKhanatesEvents = new ArrayList<>();
+    private ArrayList <String> ancientIndiaEvents = new ArrayList<>();
     private int elementCounter = 0;
     private boolean gameOver = false;
     private static int minute = 0, second = 0;
     private Handler handler = new Handler();
     private Runnable run;
-
-
 
 
     //******************************************************************************************************//
@@ -38,14 +36,13 @@ public class MongolActivity extends AppCompatActivity {
      * the addAllEvents method loads up all the possible events for game 2 in to the arrayList game2Events
      */
     public void addAllEvents() {
-        MongolKhanates game = new MongolKhanates();
+        AncientIndia game = new AncientIndia();
         for (int i = 0; i < 4; i++) {
-            MongolKhanatesEvents.add(game.date1(i));
-            MongolKhanatesEvents.add(game.date2(i));
-            MongolKhanatesEvents.add(game.date3(i));
-            MongolKhanatesEvents.add(game.date4(i));
+            ancientIndiaEvents.add(game.date1(i));
+            ancientIndiaEvents.add(game.date2(i));
+            ancientIndiaEvents.add(game.date3(i));
+            ancientIndiaEvents.add(game.date4(i));
         }
-
 
     }
 
@@ -60,39 +57,38 @@ public class MongolActivity extends AppCompatActivity {
     }
 
 
-
     /*
      * Tag #s to Note:
-     * Tag # 1206               = 1206-1220 (Mongol Unification, Conquest)
-     * Tag # 1235               = 1235-1241 (Mongol Invasion of Europe)
-     * Tag # 12511 (ie. 1251-1) = 1251-1260 (Mongol Invasion of the Middle East)
-     * Tag # 12512 (ie. 1251-2)=  1251-1292 (Mongol Invasion of East and Southeast Asia)
+     * Tag # 15001 (ie 1500-1) = 1500 BCE – 500 BCE (General)
+     * Tag # 15002 (ie 1500-2) = 1500 BCE – 400 CE (Art and Culture)
+     * Tag # 15003 (ie 1500-3) = 1500 BCE – 500 BCE (Religion)
+     * Tag # 15004 (ie 1500-4) = 1500 BCE – 500 BCE (Socio-Political)
      *
      */
 
-    protected ArrayList answerKeyMongolKhanates(int year) {
+    protected ArrayList answerKeyIndia(int year) {
         ArrayList<String> tempList = new ArrayList<>();
-        MongolKhanates game = new MongolKhanates();
+        AncientIndia game = new AncientIndia();
 
         switch (year) {
-            case 1206:
+            case 15001:
                 for (int i = 0; i < 4; i++) {
                     tempList.add(game.date1(i));
                 }
                 break;
-            case 1235:
+            case 15002:
                 for (int i = 0; i < 4; i++) {
                     tempList.add(game.date2(i));
                 }
                 break;
 
-            case 12511:
+            case 15003:
                 for (int i = 0; i < 4; i++) {
                     tempList.add(game.date3(i));
                 }
                 break;
 
-            case 12512:
+            case 15004:
                 for (int i = 0; i < 4; i++) {
                     tempList.add(game.date4(i));
                 }
@@ -104,7 +100,6 @@ public class MongolActivity extends AppCompatActivity {
         }
         return tempList;
     }
-
 
     /* the startClock method uses the handler to run the runnable by scheduling messages from the runnable.
      *   the .post() method causes the Runnable run to be added to the message queue. */
@@ -138,27 +133,26 @@ public class MongolActivity extends AppCompatActivity {
         };
     }
 
+
+
+
     //*******************************************************************************************************//
     //                                      METHODS FOR VIEW VISIBILITY                                      //
     //******************************************************************************************************//
 
     public void page1visibility(boolean visible){
         if(visible){
+            fifteenHundredGeneralBTN.setVisibility(View.VISIBLE);
+            fifteenHundredArtBTN.setVisibility(View.VISIBLE);
+            fifteenHundredReligionBTN.setVisibility(View.VISIBLE);
+            fifteenHundredSocioBTN.setVisibility(View.VISIBLE);
 
 
 
-            twelveSixBTN.setVisibility(View.VISIBLE);
-            twelveThirtyFiveBTN.setVisibility(View.VISIBLE);
-            twelveFiftyOneMiddleEastBTN.setVisibility(View.VISIBLE);
-            twelveFiftyOneAsiaBTN.setVisibility(View.VISIBLE);
-
-
-            twelveSixBTN.setEnabled(true);
-            twelveThirtyFiveBTN.setEnabled(true);
-            twelveFiftyOneMiddleEastBTN.setEnabled(true);
-            twelveFiftyOneAsiaBTN.setEnabled(true);
-
-
+            fifteenHundredGeneralBTN.setEnabled(true);
+            fifteenHundredArtBTN.setEnabled(true);
+            fifteenHundredReligionBTN.setEnabled(true);
+            fifteenHundredSocioBTN.setEnabled(true);
 
             topImageView.setImageResource(R.drawable.selectyear);
 
@@ -167,24 +161,24 @@ public class MongolActivity extends AppCompatActivity {
             submitBTN.setEnabled(false);
 
 
-
-
         }
 
         if(!visible){
 
-            twelveSixBTN.setVisibility(View.INVISIBLE);
-            twelveThirtyFiveBTN.setVisibility(View.INVISIBLE);
-            twelveFiftyOneMiddleEastBTN.setVisibility(View.INVISIBLE);
-            twelveFiftyOneAsiaBTN.setVisibility(View.INVISIBLE);
+            fifteenHundredGeneralBTN.setVisibility(View.INVISIBLE);
+            fifteenHundredArtBTN.setVisibility(View.INVISIBLE);
+            fifteenHundredReligionBTN.setVisibility(View.INVISIBLE);
+            fifteenHundredSocioBTN.setVisibility(View.INVISIBLE);
 
-            twelveSixBTN.setEnabled(false);
-            twelveThirtyFiveBTN.setEnabled(false);
-            twelveFiftyOneMiddleEastBTN.setEnabled(false);
-            twelveFiftyOneAsiaBTN.setEnabled(false);
+            fifteenHundredGeneralBTN.setEnabled(false);
+            fifteenHundredArtBTN.setEnabled(false);
+            fifteenHundredReligionBTN.setEnabled(false);
+            fifteenHundredSocioBTN.setEnabled(false);
 
         }
     }
+
+
 
     public void page2visibility(boolean visible){
         if(visible){
@@ -217,9 +211,6 @@ public class MongolActivity extends AppCompatActivity {
 
 
 
-
-
-
     //*******************************************************************************************************//
     //                METHODS FOR BUTTON ON-CLICKS   (Methods that make the app work)                      //
     //         The Methods written above are used to add functionality to the methods listed below          //
@@ -229,10 +220,10 @@ public class MongolActivity extends AppCompatActivity {
 
     /*
      * Tag #s to Note:
-     * Tag # 1206               = 1206-1220 (Mongol Unification, Conquest)
-     * Tag # 1235               = 1235-1241 (Mongol Invasion of Europe)
-     * Tag # 12511 (ie. 1251-1) = 1251-1260 (Mongol Invasion of the Middle East)
-     * Tag # 12512 (ie. 1251-2)=  1251-1292 (Mongol Invasion of East and Southeast Asia)
+     * Tag # 15001 (ie 1500-1) = 1500 BCE – 500 BCE (General)
+     * Tag # 15002 (ie 1500-2) = 1500 BCE – 400 CE (Art and Culture)
+     * Tag # 15003 (ie 1500-3) = 1500 BCE – 500 BCE (Religion)
+     * Tag # 15004 (ie 1500-4) = 1500 BCE – 500 BCE (Socio-Political)
      *
      */
 
@@ -241,8 +232,6 @@ public class MongolActivity extends AppCompatActivity {
      * yearOnClick method is the onClick method for all the the year selection buttons
      *  It is responsible for keeping track of which year button on pressed
      */
-
-
     public void yearOnClick(View view){
 
         //sets the button that is currently being pressed into the variable "buttonPressed"
@@ -252,7 +241,9 @@ public class MongolActivity extends AppCompatActivity {
         mainActivity.setButtonYear(year);
         page1visibility(false);
         page2visibility(true);
-        eventShowerTV.setText(MongolKhanatesEvents.get(elementCounter));
+        eventShowerTV.setText(ancientIndiaEvents.get(elementCounter));
+
+
     }
 
     public void submitOnClick(View view){
@@ -266,40 +257,35 @@ public class MongolActivity extends AppCompatActivity {
     }
 
     public void skipTonextOnClick(View view){
-
         if(!gameOver){
             ++elementCounter;
-            loadNextEvent(elementCounter,MongolKhanatesEvents);
+            loadNextEvent(elementCounter,ancientIndiaEvents);
         }
-
     }
 
     public void addToTimelineOnClick(View view){
-
         if(!gameOver) {
-            mainActivity.setSelectedEvents(MongolKhanatesEvents.get(elementCounter));
+            mainActivity.setSelectedEvents(ancientIndiaEvents.get(elementCounter));
             ++elementCounter;
-            loadNextEvent(elementCounter, MongolKhanatesEvents);
+            loadNextEvent(elementCounter, ancientIndiaEvents);
         }
-
-
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mongol);
+        setContentView(R.layout.activity_india);
         getSupportActionBar().hide();
         addAllEvents();
 
 
+
+
         //Button initialization
-
-        twelveSixBTN = findViewById(R.id.fifteenSeventyBTN);
-        twelveThirtyFiveBTN = findViewById(R.id.fifteenSixtyBTN);
-        twelveFiftyOneMiddleEastBTN = findViewById(R.id.twelveFiftyOneMiddleEastBTN);
-        twelveFiftyOneAsiaBTN = findViewById(R.id.fifteenFiftyThreeBTN);
-
+        fifteenHundredGeneralBTN = findViewById(R.id.fifteenHundredGeneralBTN);
+        fifteenHundredArtBTN = findViewById(R.id.fifteenHundredArtBTN);
+        fifteenHundredReligionBTN = findViewById(R.id.fifteenHundredReligionBTN);
+        fifteenHundredSocioBTN = findViewById(R.id.fifteenHundredSocioBTN);
 
         addToTimelineBTN = findViewById(R.id.addToTimelineBTN);
         skipToNextBTN = findViewById(R.id.skipToNextBTN);
@@ -313,13 +299,15 @@ public class MongolActivity extends AppCompatActivity {
         timeTV = findViewById(R.id.timeTV);
 
 
-        //button alpha
-        twelveSixBTN.setAlpha(1);
-        twelveThirtyFiveBTN.setAlpha(1);
-        twelveFiftyOneMiddleEastBTN.setAlpha(1);
-        twelveFiftyOneAsiaBTN.setAlpha(1);
+        //Button alpha
+        fifteenHundredGeneralBTN.setAlpha(1);
+        fifteenHundredArtBTN.setAlpha(1);
+        fifteenHundredReligionBTN.setAlpha(1);
+        fifteenHundredSocioBTN.setAlpha(1);
 
         page1visibility(true);
         runRunnable();
+
+
     }
 }

@@ -1,4 +1,4 @@
-package com.example.historyquiz;
+package com.techincubatorfreelance.historyquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,14 +13,14 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class WarsOfReligionActivity extends AppCompatActivity {
+public class MongolActivity extends AppCompatActivity {
 
     private  MainActivity mainActivity = new MainActivity();
-    private Button fifteenSeventyBTN,fifteenSixtyBTN,fifteenFiftySixBTN,fifteenFiftyThreeBTN;
+    private Button twelveSixBTN,twelveThirtyFiveBTN,twelveFiftyOneMiddleEastBTN,twelveFiftyOneAsiaBTN;
     private Button addToTimelineBTN,skipToNextBTN,submitBTN;
     private ImageView topImageView;
     private TextView eventShowerTV, timeTV;
-    private ArrayList<String> warsOfReligionEvents = new ArrayList<>();
+    private ArrayList<String> MongolKhanatesEvents = new ArrayList<>();
     private int elementCounter = 0;
     private boolean gameOver = false;
     private static int minute = 0, second = 0;
@@ -38,12 +38,12 @@ public class WarsOfReligionActivity extends AppCompatActivity {
      * the addAllEvents method loads up all the possible events for game 2 in to the arrayList game2Events
      */
     public void addAllEvents() {
-        WarsOfReligion game = new WarsOfReligion();
+        MongolKhanates game = new MongolKhanates();
         for (int i = 0; i < 4; i++) {
-            warsOfReligionEvents.add(game.date1(i));
-            warsOfReligionEvents.add(game.date2(i));
-            warsOfReligionEvents.add(game.date3(i));
-            warsOfReligionEvents.add(game.date4(i));
+            MongolKhanatesEvents.add(game.date1(i));
+            MongolKhanatesEvents.add(game.date2(i));
+            MongolKhanatesEvents.add(game.date3(i));
+            MongolKhanatesEvents.add(game.date4(i));
         }
 
 
@@ -63,36 +63,36 @@ public class WarsOfReligionActivity extends AppCompatActivity {
 
     /*
      * Tag #s to Note:
-     * Tag # 1570 = 1570-1700 (Environmental , Economic)
-     * Tag # 1560 = 1560-1598 (French Wars of Religion)
-     * Tag # 1556 = 1556-1648 (Spain and Netherlands)
-     * Tag # 1553 = 1553-1648 (England, Thirty Years War)
+     * Tag # 1206               = 1206-1220 (Mongol Unification, Conquest)
+     * Tag # 1235               = 1235-1241 (Mongol Invasion of Europe)
+     * Tag # 12511 (ie. 1251-1) = 1251-1260 (Mongol Invasion of the Middle East)
+     * Tag # 12512 (ie. 1251-2)=  1251-1292 (Mongol Invasion of East and Southeast Asia)
      *
      */
 
-    protected ArrayList answerKeywarsOfReligion(int year) {
+    protected ArrayList answerKeyMongolKhanates(int year) {
         ArrayList<String> tempList = new ArrayList<>();
-        WarsOfReligion game = new WarsOfReligion();
+        MongolKhanates game = new MongolKhanates();
 
         switch (year) {
-            case 1570:
+            case 1206:
                 for (int i = 0; i < 4; i++) {
                     tempList.add(game.date1(i));
                 }
                 break;
-            case 1560:
+            case 1235:
                 for (int i = 0; i < 4; i++) {
                     tempList.add(game.date2(i));
                 }
                 break;
 
-            case 1556:
+            case 12511:
                 for (int i = 0; i < 4; i++) {
                     tempList.add(game.date3(i));
                 }
                 break;
 
-            case 1553:
+            case 12512:
                 for (int i = 0; i < 4; i++) {
                     tempList.add(game.date4(i));
                 }
@@ -146,16 +146,17 @@ public class WarsOfReligionActivity extends AppCompatActivity {
         if(visible){
 
 
-            fifteenSeventyBTN.setVisibility(View.VISIBLE);
-            fifteenSixtyBTN.setVisibility(View.VISIBLE);
-            fifteenFiftySixBTN.setVisibility(View.VISIBLE);
-            fifteenFiftyThreeBTN.setVisibility(View.VISIBLE);
+
+            twelveSixBTN.setVisibility(View.VISIBLE);
+            twelveThirtyFiveBTN.setVisibility(View.VISIBLE);
+            twelveFiftyOneMiddleEastBTN.setVisibility(View.VISIBLE);
+            twelveFiftyOneAsiaBTN.setVisibility(View.VISIBLE);
 
 
-            fifteenSeventyBTN.setEnabled(true);
-            fifteenSixtyBTN.setEnabled(true);
-            fifteenFiftySixBTN.setEnabled(true);
-            fifteenFiftyThreeBTN.setEnabled(true);
+            twelveSixBTN.setEnabled(true);
+            twelveThirtyFiveBTN.setEnabled(true);
+            twelveFiftyOneMiddleEastBTN.setEnabled(true);
+            twelveFiftyOneAsiaBTN.setEnabled(true);
 
 
 
@@ -172,15 +173,15 @@ public class WarsOfReligionActivity extends AppCompatActivity {
 
         if(!visible){
 
-            fifteenSeventyBTN.setVisibility(View.INVISIBLE);
-            fifteenSixtyBTN.setVisibility(View.INVISIBLE);
-            fifteenFiftySixBTN.setVisibility(View.INVISIBLE);
-            fifteenFiftyThreeBTN.setVisibility(View.INVISIBLE);
+            twelveSixBTN.setVisibility(View.INVISIBLE);
+            twelveThirtyFiveBTN.setVisibility(View.INVISIBLE);
+            twelveFiftyOneMiddleEastBTN.setVisibility(View.INVISIBLE);
+            twelveFiftyOneAsiaBTN.setVisibility(View.INVISIBLE);
 
-            fifteenSeventyBTN.setEnabled(false);
-            fifteenSixtyBTN.setEnabled(false);
-            fifteenFiftySixBTN.setEnabled(false);
-            fifteenFiftyThreeBTN.setEnabled(false);
+            twelveSixBTN.setEnabled(false);
+            twelveThirtyFiveBTN.setEnabled(false);
+            twelveFiftyOneMiddleEastBTN.setEnabled(false);
+            twelveFiftyOneAsiaBTN.setEnabled(false);
 
         }
     }
@@ -228,12 +229,13 @@ public class WarsOfReligionActivity extends AppCompatActivity {
 
     /*
      * Tag #s to Note:
-     * Tag # 1570 = 1570-1700 (Environmental , Economic)
-     * Tag # 1560 = 1560-1598 (French Wars of Religion)
-     * Tag # 1556 = 1556-1648 (Spain and Netherlands)
-     * Tag # 1553 = 1553-1648 (England, Thirty Years War)
+     * Tag # 1206               = 1206-1220 (Mongol Unification, Conquest)
+     * Tag # 1235               = 1235-1241 (Mongol Invasion of Europe)
+     * Tag # 12511 (ie. 1251-1) = 1251-1260 (Mongol Invasion of the Middle East)
+     * Tag # 12512 (ie. 1251-2)=  1251-1292 (Mongol Invasion of East and Southeast Asia)
      *
      */
+
 
     /*
      * yearOnClick method is the onClick method for all the the year selection buttons
@@ -250,7 +252,7 @@ public class WarsOfReligionActivity extends AppCompatActivity {
         mainActivity.setButtonYear(year);
         page1visibility(false);
         page2visibility(true);
-        eventShowerTV.setText(warsOfReligionEvents.get(elementCounter));
+        eventShowerTV.setText(MongolKhanatesEvents.get(elementCounter));
     }
 
     public void submitOnClick(View view){
@@ -267,7 +269,7 @@ public class WarsOfReligionActivity extends AppCompatActivity {
 
         if(!gameOver){
             ++elementCounter;
-            loadNextEvent(elementCounter,warsOfReligionEvents);
+            loadNextEvent(elementCounter,MongolKhanatesEvents);
         }
 
     }
@@ -275,9 +277,9 @@ public class WarsOfReligionActivity extends AppCompatActivity {
     public void addToTimelineOnClick(View view){
 
         if(!gameOver) {
-            mainActivity.setSelectedEvents(warsOfReligionEvents.get(elementCounter));
+            mainActivity.setSelectedEvents(MongolKhanatesEvents.get(elementCounter));
             ++elementCounter;
-            loadNextEvent(elementCounter, warsOfReligionEvents);
+            loadNextEvent(elementCounter, MongolKhanatesEvents);
         }
 
 
@@ -286,16 +288,17 @@ public class WarsOfReligionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wars_of_religion);
+        setContentView(R.layout.activity_mongol);
         getSupportActionBar().hide();
         addAllEvents();
 
 
         //Button initialization
-        fifteenSeventyBTN = findViewById(R.id.fifteenSeventyBTN);
-        fifteenSixtyBTN = findViewById(R.id.fifteenSixtyBTN);
-        fifteenFiftySixBTN = findViewById(R.id.fifteenFiftySixBTN);
-        fifteenFiftyThreeBTN = findViewById(R.id.fifteenFiftyThreeBTN);
+
+        twelveSixBTN = findViewById(R.id.fifteenSeventyBTN);
+        twelveThirtyFiveBTN = findViewById(R.id.fifteenSixtyBTN);
+        twelveFiftyOneMiddleEastBTN = findViewById(R.id.twelveFiftyOneMiddleEastBTN);
+        twelveFiftyOneAsiaBTN = findViewById(R.id.fifteenFiftyThreeBTN);
 
 
         addToTimelineBTN = findViewById(R.id.addToTimelineBTN);
@@ -311,10 +314,10 @@ public class WarsOfReligionActivity extends AppCompatActivity {
 
 
         //button alpha
-        fifteenSeventyBTN.setAlpha(1);
-        fifteenSixtyBTN.setAlpha(1);
-        fifteenFiftySixBTN.setAlpha(1);
-        fifteenFiftyThreeBTN.setAlpha(1);
+        twelveSixBTN.setAlpha(1);
+        twelveThirtyFiveBTN.setAlpha(1);
+        twelveFiftyOneMiddleEastBTN.setAlpha(1);
+        twelveFiftyOneAsiaBTN.setAlpha(1);
 
         page1visibility(true);
         runRunnable();

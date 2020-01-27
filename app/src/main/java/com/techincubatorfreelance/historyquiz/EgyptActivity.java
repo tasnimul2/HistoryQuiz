@@ -1,11 +1,10 @@
-package com.example.historyquiz;
+package com.techincubatorfreelance.historyquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,19 +13,30 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class IndiaActivity extends AppCompatActivity {
+public class EgyptActivity extends AppCompatActivity {
 
-    private  MainActivity mainActivity = new MainActivity();
-    private Button fifteenHundredGeneralBTN,fifteenHundredArtBTN,fifteenHundredReligionBTN,fifteenHundredSocioBTN;
+    private MainActivity mainActivity = new MainActivity();
+    private Button sixteenFortyBTN,fifteenSeventyMilitaryBTN,fifteenSeventyPoliticalBTN,twelveEightyfiveBTN;
     private Button addToTimelineBTN,skipToNextBTN,submitBTN;
     private ImageView topImageView;
-    private TextView eventShowerTV, timeTV;
-    private ArrayList <String> ancientIndiaEvents = new ArrayList<>();
+    private ArrayList<String> ancientEgyptEvents = new ArrayList<>();
     private int elementCounter = 0;
-    private boolean gameOver = false;
+    private TextView eventShowerTV, timeTV;
+    private boolean gameOver = false; // this is not set to static because once we leave this activity, garbage collection will set this back to false.
+                                      //this will allow us to not have to manually set game over to false from the timeline activate
     private static int minute = 0, second = 0;
     private Handler handler = new Handler();
     private Runnable run;
+
+
+
+
+    //******************************************************************************************************//
+    //                                           GETTERS / SETTERS                                          //
+    //******************************************************************************************************//
+
+
+
 
 
     //******************************************************************************************************//
@@ -34,19 +44,18 @@ public class IndiaActivity extends AppCompatActivity {
     //******************************************************************************************************//
 
     /*
-     * the addAllEvents method loads up all the possible events for game 2 in to the arrayList game2Events
+     * the addAllEvents method loads up all the possible events for Ancient Egypt in to the arrayList ancientEgyptEvents
      */
-    public void addAllEvents() {
-        AncientIndia game = new AncientIndia();
-        for (int i = 0; i < 4; i++) {
-            ancientIndiaEvents.add(game.date1(i));
-            ancientIndiaEvents.add(game.date2(i));
-            ancientIndiaEvents.add(game.date3(i));
-            ancientIndiaEvents.add(game.date4(i));
+    public void addAllEvents(){
+        AncientEgypt game = new AncientEgypt();
+        for(int i = 0; i< 4; i++){
+            ancientEgyptEvents.add(game.date1(i));
+            ancientEgyptEvents.add(game.date2(i));
+            ancientEgyptEvents.add(game.date3(i));
+            ancientEgyptEvents.add(game.date4(i));
         }
 
     }
-
 
     public void loadNextEvent(int elementCounter, ArrayList eventsArray){
         if (elementCounter == eventsArray.size()) {
@@ -57,39 +66,42 @@ public class IndiaActivity extends AppCompatActivity {
         }
     }
 
+    /* the answerKeyEgypt function creates an arrayList that holds the answer key for
+     *  the specific time period selected
+     */
 
     /*
-     * Tag #s to Note:
-     * Tag # 15001 (ie 1500-1) = 1500 BCE – 500 BCE (General)
-     * Tag # 15002 (ie 1500-2) = 1500 BCE – 400 CE (Art and Culture)
-     * Tag # 15003 (ie 1500-3) = 1500 BCE – 500 BCE (Religion)
-     * Tag # 15004 (ie 1500-4) = 1500 BCE – 500 BCE (Socio-Political)
+     * Tag #s to Notes:
+     * Tag # 1640              = 1640 BCE-1570 BCE
+     * Tag # 15701 (ie 1570-1) = 1570 BCE – 1075 BCE (Military)
+     * Tag # 15702 (ie 1570-2) = 1570 BCE – 1075 BCE (Political)
+     * Tag # 1285              = 1285 BCE (Military, Art, Literature)
      *
      */
 
-    protected ArrayList answerKeyIndia(int year) {
+    protected ArrayList answerKeyEgypt(int year) {
         ArrayList<String> tempList = new ArrayList<>();
-        AncientIndia game = new AncientIndia();
+        AncientEgypt game = new AncientEgypt();
 
         switch (year) {
-            case 15001:
+            case 1640:
                 for (int i = 0; i < 4; i++) {
                     tempList.add(game.date1(i));
                 }
                 break;
-            case 15002:
+            case 15701:
                 for (int i = 0; i < 4; i++) {
                     tempList.add(game.date2(i));
                 }
                 break;
 
-            case 15003:
+            case 15702:
                 for (int i = 0; i < 4; i++) {
                     tempList.add(game.date3(i));
                 }
                 break;
 
-            case 15004:
+            case 1285:
                 for (int i = 0; i < 4; i++) {
                     tempList.add(game.date4(i));
                 }
@@ -101,6 +113,7 @@ public class IndiaActivity extends AppCompatActivity {
         }
         return tempList;
     }
+
 
     /* the startClock method uses the handler to run the runnable by scheduling messages from the runnable.
      *   the .post() method causes the Runnable run to be added to the message queue. */
@@ -135,51 +148,43 @@ public class IndiaActivity extends AppCompatActivity {
     }
 
 
-
-
     //*******************************************************************************************************//
     //                                      METHODS FOR VIEW VISIBILITY                                      //
     //******************************************************************************************************//
 
+
+
     public void page1visibility(boolean visible){
         if(visible){
-            fifteenHundredGeneralBTN.setVisibility(View.VISIBLE);
-            fifteenHundredArtBTN.setVisibility(View.VISIBLE);
-            fifteenHundredReligionBTN.setVisibility(View.VISIBLE);
-            fifteenHundredSocioBTN.setVisibility(View.VISIBLE);
-
-
-
-            fifteenHundredGeneralBTN.setEnabled(true);
-            fifteenHundredArtBTN.setEnabled(true);
-            fifteenHundredReligionBTN.setEnabled(true);
-            fifteenHundredSocioBTN.setEnabled(true);
-
+            sixteenFortyBTN.setVisibility(View.VISIBLE);
+            fifteenSeventyMilitaryBTN.setVisibility(View.VISIBLE);
+            fifteenSeventyPoliticalBTN.setVisibility(View.VISIBLE);
+            twelveEightyfiveBTN.setVisibility(View.VISIBLE);
             topImageView.setImageResource(R.drawable.selectyear);
+
+            sixteenFortyBTN.setEnabled(true);
+            fifteenSeventyMilitaryBTN.setEnabled(true);
+            fifteenSeventyPoliticalBTN.setEnabled(true);
+            twelveEightyfiveBTN.setEnabled(true);
 
             addToTimelineBTN.setEnabled(false);
             skipToNextBTN.setEnabled(false);
             submitBTN.setEnabled(false);
-
-
         }
 
         if(!visible){
+            sixteenFortyBTN.setVisibility(View.INVISIBLE);
+            fifteenSeventyMilitaryBTN.setVisibility(View.INVISIBLE);
+            fifteenSeventyPoliticalBTN.setVisibility(View.INVISIBLE);
+            twelveEightyfiveBTN.setVisibility(View.INVISIBLE);
 
-            fifteenHundredGeneralBTN.setVisibility(View.INVISIBLE);
-            fifteenHundredArtBTN.setVisibility(View.INVISIBLE);
-            fifteenHundredReligionBTN.setVisibility(View.INVISIBLE);
-            fifteenHundredSocioBTN.setVisibility(View.INVISIBLE);
 
-            fifteenHundredGeneralBTN.setEnabled(false);
-            fifteenHundredArtBTN.setEnabled(false);
-            fifteenHundredReligionBTN.setEnabled(false);
-            fifteenHundredSocioBTN.setEnabled(false);
-
+            sixteenFortyBTN.setEnabled(false);
+            fifteenSeventyMilitaryBTN.setEnabled(false);
+            fifteenSeventyPoliticalBTN.setEnabled(false);
+            twelveEightyfiveBTN.setEnabled(false);
         }
     }
-
-
 
     public void page2visibility(boolean visible){
         if(visible){
@@ -213,18 +218,18 @@ public class IndiaActivity extends AppCompatActivity {
 
 
     //*******************************************************************************************************//
-    //                METHODS FOR BUTTON ON-CLICKS   (Methods that make the app work)                      //
+    //                METHODS FOR BUTTON ON-CLICKS   (Methods that make the app work)                       //
     //         The Methods written above are used to add functionality to the methods listed below          //
     //******************************************************************************************************//
 
 
 
     /*
-     * Tag #s to Note:
-     * Tag # 15001 (ie 1500-1) = 1500 BCE – 500 BCE (General)
-     * Tag # 15002 (ie 1500-2) = 1500 BCE – 400 CE (Art and Culture)
-     * Tag # 15003 (ie 1500-3) = 1500 BCE – 500 BCE (Religion)
-     * Tag # 15004 (ie 1500-4) = 1500 BCE – 500 BCE (Socio-Political)
+     * Tag #s to Notes:
+     * Tag # 1640              = 1640 BCE-1570 BCE
+     * Tag # 15701 (ie 1570-1) = 1570 BCE – 1075 BCE (Military)
+     * Tag # 15702 (ie 1570-2) = 1570 BCE – 1075 BCE (Political)
+     * Tag # 1285              = 1285 BCE (Military, Art, Literature)
      *
      */
 
@@ -242,73 +247,79 @@ public class IndiaActivity extends AppCompatActivity {
         mainActivity.setButtonYear(year);
         page1visibility(false);
         page2visibility(true);
-        eventShowerTV.setText(ancientIndiaEvents.get(elementCounter));
+        eventShowerTV.setText(ancientEgyptEvents.get(elementCounter));
+    }
 
+    public void addToTimelineOnClick(View view){
+        if(!gameOver) {
+            mainActivity.setSelectedEvents(ancientEgyptEvents.get(elementCounter));
+            ++elementCounter;
+            loadNextEvent(elementCounter, ancientEgyptEvents);
+        }
+
+    }
+
+    public void skipTonextOnClick(View view){
+        if(!gameOver){
+            ++elementCounter;
+            loadNextEvent(elementCounter,ancientEgyptEvents);
+        }
 
     }
 
     public void submitOnClick(View view){
         Intent intent = new Intent(this,Timeline.class);
         startActivity(intent);
+
         handler.removeCallbacks(run); //uses the handler to tell runnable called "run" to stop running.
         mainActivity.setSecond(second);
         mainActivity.setMinute(minute);
         second = 0;
         minute = 0;
+
+
+
+
+
+
     }
 
-    public void skipTonextOnClick(View view){
-        if(!gameOver){
-            ++elementCounter;
-            loadNextEvent(elementCounter,ancientIndiaEvents);
-        }
-    }
 
-    public void addToTimelineOnClick(View view){
-        if(!gameOver) {
-            mainActivity.setSelectedEvents(ancientIndiaEvents.get(elementCounter));
-            ++elementCounter;
-            loadNextEvent(elementCounter, ancientIndiaEvents);
-        }
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_india);
+        setContentView(R.layout.activity_egypt);
         getSupportActionBar().hide();
         addAllEvents();
 
-
-
-
         //Button initialization
-        fifteenHundredGeneralBTN = findViewById(R.id.fifteenHundredGeneralBTN);
-        fifteenHundredArtBTN = findViewById(R.id.fifteenHundredArtBTN);
-        fifteenHundredReligionBTN = findViewById(R.id.fifteenHundredReligionBTN);
-        fifteenHundredSocioBTN = findViewById(R.id.fifteenHundredSocioBTN);
-
+        sixteenFortyBTN = findViewById(R.id.sixteenFortyBTN);
+        fifteenSeventyMilitaryBTN = findViewById(R.id.fifteenSeventyMilitaryBTN);
+        fifteenSeventyPoliticalBTN = findViewById(R.id.fifteenSeventyPoliticalBTN);
+        twelveEightyfiveBTN = findViewById(R.id.twelveEightyfiveBTN);
         addToTimelineBTN = findViewById(R.id.addToTimelineBTN);
         skipToNextBTN = findViewById(R.id.skipToNextBTN);
         submitBTN = findViewById(R.id.submitBTN);
 
-        //ImageView initialization
+
+        //ImageView Initialization
         topImageView = findViewById(R.id.topImageView);
 
-        //TextView initialization
+        //TextView Initialization
         eventShowerTV = findViewById(R.id.eventShowerTV);
         timeTV = findViewById(R.id.timeTV);
 
 
-        //Button alpha
-        fifteenHundredGeneralBTN.setAlpha(1);
-        fifteenHundredArtBTN.setAlpha(1);
-        fifteenHundredReligionBTN.setAlpha(1);
-        fifteenHundredSocioBTN.setAlpha(1);
-
+        //setting alpha
+        sixteenFortyBTN.setAlpha(1);
+        fifteenSeventyMilitaryBTN.setAlpha(1);
+        fifteenSeventyPoliticalBTN.setAlpha(1);
+        twelveEightyfiveBTN.setAlpha(1);
         page1visibility(true);
+
+
         runRunnable();
-
-
     }
 }

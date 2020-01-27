@@ -1,4 +1,4 @@
-package com.example.historyquiz;
+package com.techincubatorfreelance.historyquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,13 +13,14 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class ReformationActivity extends AppCompatActivity {
+public class WarsOfReligionActivity extends AppCompatActivity {
+
     private  MainActivity mainActivity = new MainActivity();
-    private Button fifteenSeventeenBTN,fifteenTwentysevenBTN,fifteenThirtyfourPeopleBTN,fifteenThirtyfourInstitutionsBTN;
+    private Button fifteenSeventyBTN,fifteenSixtyBTN,fifteenFiftySixBTN,fifteenFiftyThreeBTN;
     private Button addToTimelineBTN,skipToNextBTN,submitBTN;
     private ImageView topImageView;
     private TextView eventShowerTV, timeTV;
-    private ArrayList<String> reformationEvents = new ArrayList<>();
+    private ArrayList<String> warsOfReligionEvents = new ArrayList<>();
     private int elementCounter = 0;
     private boolean gameOver = false;
     private static int minute = 0, second = 0;
@@ -37,12 +38,12 @@ public class ReformationActivity extends AppCompatActivity {
      * the addAllEvents method loads up all the possible events for game 2 in to the arrayList game2Events
      */
     public void addAllEvents() {
-        EuropeReformation game = new EuropeReformation();
+        WarsOfReligion game = new WarsOfReligion();
         for (int i = 0; i < 4; i++) {
-            reformationEvents.add(game.date1(i));
-            reformationEvents.add(game.date2(i));
-            reformationEvents.add(game.date3(i));
-            reformationEvents.add(game.date4(i));
+            warsOfReligionEvents.add(game.date1(i));
+            warsOfReligionEvents.add(game.date2(i));
+            warsOfReligionEvents.add(game.date3(i));
+            warsOfReligionEvents.add(game.date4(i));
         }
 
 
@@ -59,38 +60,39 @@ public class ReformationActivity extends AppCompatActivity {
     }
 
 
+
     /*
      * Tag #s to Note:
-     * Tag # 1517                 =  1517 – 1564 (Martin Luther and John Calvin)
-     * Tag # 1527                 =  1527-1559 (English Reformation)
-     * Tag # 15341 (ie. 1534 - 1) =  1534-1563 (Catholic Reformation, People)
-     * Tag # 15342 (ie. 1534 - 2) =  1534-1563 (Catholic Reformation, Institutions)
+     * Tag # 1570 = 1570-1700 (Environmental , Economic)
+     * Tag # 1560 = 1560-1598 (French Wars of Religion)
+     * Tag # 1556 = 1556-1648 (Spain and Netherlands)
+     * Tag # 1553 = 1553-1648 (England, Thirty Years War)
      *
      */
 
-    protected ArrayList answerKeyEuropeReformation(int year) {
+    protected ArrayList answerKeywarsOfReligion(int year) {
         ArrayList<String> tempList = new ArrayList<>();
-        EuropeReformation game = new EuropeReformation();
+        WarsOfReligion game = new WarsOfReligion();
 
         switch (year) {
-            case 1517:
+            case 1570:
                 for (int i = 0; i < 4; i++) {
                     tempList.add(game.date1(i));
                 }
                 break;
-            case 1527:
+            case 1560:
                 for (int i = 0; i < 4; i++) {
                     tempList.add(game.date2(i));
                 }
                 break;
 
-            case 15341:
+            case 1556:
                 for (int i = 0; i < 4; i++) {
                     tempList.add(game.date3(i));
                 }
                 break;
 
-            case 15342:
+            case 1553:
                 for (int i = 0; i < 4; i++) {
                     tempList.add(game.date4(i));
                 }
@@ -136,7 +138,6 @@ public class ReformationActivity extends AppCompatActivity {
         };
     }
 
-
     //*******************************************************************************************************//
     //                                      METHODS FOR VIEW VISIBILITY                                      //
     //******************************************************************************************************//
@@ -145,16 +146,17 @@ public class ReformationActivity extends AppCompatActivity {
         if(visible){
 
 
-            fifteenSeventeenBTN.setVisibility(View.VISIBLE);
-            fifteenTwentysevenBTN.setVisibility(View.VISIBLE);
-            fifteenThirtyfourPeopleBTN.setVisibility(View.VISIBLE);
-            fifteenThirtyfourInstitutionsBTN.setVisibility(View.VISIBLE);
+            fifteenSeventyBTN.setVisibility(View.VISIBLE);
+            fifteenSixtyBTN.setVisibility(View.VISIBLE);
+            fifteenFiftySixBTN.setVisibility(View.VISIBLE);
+            fifteenFiftyThreeBTN.setVisibility(View.VISIBLE);
 
 
-            fifteenSeventeenBTN.setEnabled(true);
-            fifteenTwentysevenBTN.setEnabled(true);
-            fifteenThirtyfourPeopleBTN.setEnabled(true);
-            fifteenThirtyfourInstitutionsBTN.setEnabled(true);
+            fifteenSeventyBTN.setEnabled(true);
+            fifteenSixtyBTN.setEnabled(true);
+            fifteenFiftySixBTN.setEnabled(true);
+            fifteenFiftyThreeBTN.setEnabled(true);
+
 
 
             topImageView.setImageResource(R.drawable.selectyear);
@@ -170,15 +172,15 @@ public class ReformationActivity extends AppCompatActivity {
 
         if(!visible){
 
-            fifteenSeventeenBTN.setVisibility(View.INVISIBLE);
-            fifteenTwentysevenBTN.setVisibility(View.INVISIBLE);
-            fifteenThirtyfourPeopleBTN.setVisibility(View.INVISIBLE);
-            fifteenThirtyfourInstitutionsBTN.setVisibility(View.INVISIBLE);
+            fifteenSeventyBTN.setVisibility(View.INVISIBLE);
+            fifteenSixtyBTN.setVisibility(View.INVISIBLE);
+            fifteenFiftySixBTN.setVisibility(View.INVISIBLE);
+            fifteenFiftyThreeBTN.setVisibility(View.INVISIBLE);
 
-            fifteenSeventeenBTN.setEnabled(false);
-            fifteenTwentysevenBTN.setEnabled(false);
-            fifteenThirtyfourPeopleBTN.setEnabled(false);
-            fifteenThirtyfourInstitutionsBTN.setEnabled(false);
+            fifteenSeventyBTN.setEnabled(false);
+            fifteenSixtyBTN.setEnabled(false);
+            fifteenFiftySixBTN.setEnabled(false);
+            fifteenFiftyThreeBTN.setEnabled(false);
 
         }
     }
@@ -213,6 +215,10 @@ public class ReformationActivity extends AppCompatActivity {
     }
 
 
+
+
+
+
     //*******************************************************************************************************//
     //                METHODS FOR BUTTON ON-CLICKS   (Methods that make the app work)                      //
     //         The Methods written above are used to add functionality to the methods listed below          //
@@ -222,13 +228,12 @@ public class ReformationActivity extends AppCompatActivity {
 
     /*
      * Tag #s to Note:
-     * Tag # 1517                 =  1517 – 1564 (Martin Luther and John Calvin)
-     * Tag # 1527                 =  1527-1559 (English Reformation)
-     * Tag # 15341 (ie. 1534 - 1) =  1534-1563 (Catholic Reformation, People)
-     * Tag # 15342 (ie. 1534 - 2) =  1534-1563 (Catholic Reformation, Institutions)
+     * Tag # 1570 = 1570-1700 (Environmental , Economic)
+     * Tag # 1560 = 1560-1598 (French Wars of Religion)
+     * Tag # 1556 = 1556-1648 (Spain and Netherlands)
+     * Tag # 1553 = 1553-1648 (England, Thirty Years War)
      *
      */
-
 
     /*
      * yearOnClick method is the onClick method for all the the year selection buttons
@@ -245,10 +250,8 @@ public class ReformationActivity extends AppCompatActivity {
         mainActivity.setButtonYear(year);
         page1visibility(false);
         page2visibility(true);
-        eventShowerTV.setText(reformationEvents.get(elementCounter));
+        eventShowerTV.setText(warsOfReligionEvents.get(elementCounter));
     }
-
-
 
     public void submitOnClick(View view){
         Intent intent = new Intent(this,Timeline.class);
@@ -264,7 +267,7 @@ public class ReformationActivity extends AppCompatActivity {
 
         if(!gameOver){
             ++elementCounter;
-            loadNextEvent(elementCounter,reformationEvents);
+            loadNextEvent(elementCounter,warsOfReligionEvents);
         }
 
     }
@@ -272,36 +275,27 @@ public class ReformationActivity extends AppCompatActivity {
     public void addToTimelineOnClick(View view){
 
         if(!gameOver) {
-            mainActivity.setSelectedEvents(reformationEvents.get(elementCounter));
+            mainActivity.setSelectedEvents(warsOfReligionEvents.get(elementCounter));
             ++elementCounter;
-            loadNextEvent(elementCounter, reformationEvents);
+            loadNextEvent(elementCounter, warsOfReligionEvents);
         }
 
 
     }
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reformation);
-
+        setContentView(R.layout.activity_wars_of_religion);
         getSupportActionBar().hide();
         addAllEvents();
 
-        //Button Initialization
 
-        fifteenSeventeenBTN = findViewById(R.id.fifteenSeventeenBTN);
-        fifteenTwentysevenBTN = findViewById(R.id.fifteenTwentysevenBTN);
-        fifteenThirtyfourPeopleBTN = findViewById(R.id.fifteenThirtyfourPeopleBTN);
-        fifteenThirtyfourInstitutionsBTN = findViewById(R.id.fifteenThirtyfourInstitutionsBTN);
-
-
-        fifteenSeventeenBTN.setAlpha(1);
-        fifteenTwentysevenBTN.setAlpha(1);
-        fifteenThirtyfourPeopleBTN.setAlpha(1);
-        fifteenThirtyfourInstitutionsBTN.setAlpha(1);
+        //Button initialization
+        fifteenSeventyBTN = findViewById(R.id.fifteenSeventyBTN);
+        fifteenSixtyBTN = findViewById(R.id.fifteenSixtyBTN);
+        fifteenFiftySixBTN = findViewById(R.id.fifteenFiftySixBTN);
+        fifteenFiftyThreeBTN = findViewById(R.id.fifteenFiftyThreeBTN);
 
 
         addToTimelineBTN = findViewById(R.id.addToTimelineBTN);
@@ -315,6 +309,12 @@ public class ReformationActivity extends AppCompatActivity {
         eventShowerTV = findViewById(R.id.eventShowerTV);
         timeTV = findViewById(R.id.timeTV);
 
+
+        //button alpha
+        fifteenSeventyBTN.setAlpha(1);
+        fifteenSixtyBTN.setAlpha(1);
+        fifteenFiftySixBTN.setAlpha(1);
+        fifteenFiftyThreeBTN.setAlpha(1);
 
         page1visibility(true);
         runRunnable();

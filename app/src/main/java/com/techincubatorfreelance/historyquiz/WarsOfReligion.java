@@ -1,4 +1,4 @@
-package com.example.historyquiz;
+package com.techincubatorfreelance.historyquiz;
 
 public class WarsOfReligion {
     /*
