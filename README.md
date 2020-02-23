@@ -2,7 +2,7 @@
 
 ### History Puzzle is a game to teach students about historical events and the related timelines that reinforces the students’ knowledge on the assigned readings.
 
-### [SOURCE CODE](https://github.com/mohammed1478/HistoryQuiz/tree/master/app/src/main/java/com/example/historyquiz)
+### [SOURCE CODE](https://github.com/mohammed1478/HistoryQuiz/tree/master/app/src/main/java/com/techincubatorfreelance/historyquiz)
 ### [DOWNLOAD APP (Android Only)](https://play.google.com/store/apps/details?id=com.techincubatorfreelance.historyquiz)
 
 
